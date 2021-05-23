@@ -1,5 +1,11 @@
 <?php
-	$conn = oci_connect('dbuser174414','ce174414','192.168.1.3');
+
+    $dbuser="dbuser174414";
+    $dbpass="ce174414";
+    $dbsid = "( DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP) (HOST = localhost) (PORT = 1521) ) ) 
+                          (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = orcl) ) ) ";
+
+    $conn = oci_connect($dbuser,$dbpass,$dbsid);
 	
 	$sql = "INSERT INTO CUSTOMER(customer_id,user_id,user_pw,birth,name,phone_number)
 				VALUES(CUSTOMER_SEQ.NEXTVAL,:user_id,:user_pw,:birth,:name,:phone_number)";
@@ -26,8 +32,9 @@
 	$middleNum = check_input($_POST['middleNum']);
 	$lastNum = check_input($_POST['lastNum']);
 	
+
 	
-	$birth = (string)$year.$month.$day;
+	$birth = (string)$year."-".$month."-".$day;
 	$phone_number = (string)$firstNum.$middleNum.$lastNum;
 	
 	
@@ -37,8 +44,11 @@
 	oci_bind_by_name($stid, ":name", $name);
 	oci_bind_by_name($stid, ":phone_number", $phone_number);
 	
+    echo $birth ;
+    echo $phone_number;
+
 	$result = (oci_execute($stid) ) ? 'Succes' : 'Fail';
-	echo $result
+	echo $result;
 	
 	oci_commit($conn);
 	oci_free_statement($stid);
