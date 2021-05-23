@@ -36,29 +36,30 @@
  <center>
  <h1>회원가입</h1>
  <table boder = "" bgcolor = "#cdfdee" cellspacing = "1" >
- <FORM>
+ 
+ <FORM name="register" method="post" action="./insertMember.php">
 
   <tr>
    <td text-align="center">아이디 </td>
    <td>
-   <input type = "text" maxlength = "10"/>
+   <input type = "text" name="id" maxlength = "10"/>
    <input type = "button" value = "중복확인"/>
    </td>
   </tr>
 
   <tr>
    <td> 비밀번호 </td>
-   <td> <input type = "password" maxlength = "10"/> </td>
+   <td> <input type = "password" name="pw" maxlength = "10"/> </td>
   </tr>
 
   <tr>
    <td> 비밀번호 확인 </td>
-   <td> <input type = "password" maxlength = "10"/> </td>
+   <td> <input type = "password" name="pwCheck" maxlength = "10"/> </td>
   </tr>
 
   <tr>
    <td> 성명 </td>
-   <td> <input type = "text" maxlength = "10"/> </td>
+   <td> <input type = "text" name="name" maxlength = "10"/> </td>
   </tr>
   
   <tr>
@@ -108,22 +109,23 @@
     <input type = "radio" name = "phone"/> KT
     <input type = "radio" name = "phone"/> LGU+
    <br>
-    <select>
+    <select name="firstNum">
      <option> 010 </option>
      <option> 011 </option>
      <option> 016 </option>
      <option> 018 </option>
     </select>
-    <input type = "text" size = "4" maxlength = "4" onkeypress='return checkNumber(event)'/> - <input type = "text" size = "4" maxlength = "4" onkeypress='return checkNumber(event)'/>
+    <input type = "text" name="middleNum" size = "4" maxlength = "4" onkeypress='return checkNumber(event)'/> - <input type = "text" name="lastNum"size = "4" maxlength = "4" onkeypress='return checkNumber(event)'/>
    </td>
   </tr>
+  <input type = "submit" value = "가입하기"/>
+<button onClick="window.location.reload()">다시 입력</button>
  </FORM>
 </table>
 
 <br>
 
-<input type = "submit" value = "가입하기"/>
-<button onClick="window.location.reload()">다시 입력</button>
+
 
 </center>
 </body>
