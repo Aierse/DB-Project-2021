@@ -20,18 +20,4 @@
         
         /*미완성*/
     }
-	
-	$sql = "INSERT INTO CUSTOMER(customer_id,user_id,user_pw,birth,name,phone_number)
-				VALUES(CUSTOMER_SEQ.NEXTVAL,:user_id,:user_pw,:birth,:name,:phone_number)";
-	
-
-		
-	$stid = oci_parse($conn,$sql);
-
-	$result = (oci_execute($stid) ) ? 'Succes' : 'Fail';
-	echo $result;
-	
-	oci_commit($conn);
-	oci_free_statement($stid);
-	oci_close($conn);
 ?>
