@@ -1,30 +1,16 @@
 <?php
-    require_once('../db/db.php');
-    $userid = $_GET['userid'];
+    include "stdlib.php";
 
-    if(!$userid){
-        echo "
-        <p>아이디를 입력해주세요.</p>
-        <center><input type=button value=창닫기 onclick='self.close()'></center>
-        ";
-    } else{
-        $sql = $db -> prepare("SELECT * FROM register WHERE userid=:userid");
-        $sql -> bindParam(':userid',$userid);
-        $sql -> execute();
-        $count = $sql -> rowCount();
+    $id=check_input($_GET['id']);
 
-            if($count<1){
-                echo "
-                <p>사용 가능한 아이디입니다.</p>
-                <center><input type=button value=창닫기 onclick='self.close()'></center>
-                ";
-            } else{
-                echo "
-                <p>이미 존재하는 아이디입니다.</p>
-                <center><input type=button value=창닫기 onclick='self.close()'></center>
-                ";
-            }
+    $row=search_member(get_connect(),$id);
+
+    if($row==NULL){
+        echo "성공";
     }
+    else 
+    echo "실패";
+    
 ?>
 <!DOCTYPE html>
 <html lang="kor">

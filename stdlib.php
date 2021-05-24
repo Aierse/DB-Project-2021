@@ -1,5 +1,5 @@
 <?php
-    function get_connect($user_id = "dbuser174414", $user_pw = "ce1234") {
+    function get_connect($user_id = "dbuser174414", $user_pw = "ce174414") {
       $dbsid = "( DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP) (HOST = localhost) (PORT = 1521) ) ) 
                           (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = orcl) ) ) ";
       
@@ -15,12 +15,16 @@
         return $data;
     }
 
-    function search_member($connect, $name) {
-        $sql = "SELECT TOP 1 user_id FROM Customer WHERE name = $name";
+
+    function search_member($connect, $user_id) {
+        $sql = "SELECT user_id FROM Customer WHERE user_id = :user_id";
+        $stid = oci_parse($connect,$sql);
         
-        $stid = oci_parse($conn,$sql);
+        oci_bind_by_name($stid, ":user_id", $user_id);
+
+       
         if (oci_execute($stid)) {
-            $row = oci_fetch_array($result, OCI_ASSOC);
+            $row = oci_fetch_array($stid, OCI_ASSOC);
             
             oci_free_statement($stid);
             oci_close($connect);

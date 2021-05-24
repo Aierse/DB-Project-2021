@@ -32,7 +32,7 @@
     }
     
     function checkId() {
-      window.open("checkId.php?userid=" + document.register.id.value,"IDcheck","left=50, top=50, width=100, height=20, scrollbars=no, resizeable=no");
+      window.open("checkId.php?id=" + document.register.id.value,"IDcheck","left=50, top=50, width=100, height=20, scrollbars=no, resizeable=no");
     }
     
     function checkValue()
@@ -149,11 +149,11 @@
    </td>
   </tr>
   <input type = "submit" value = "가입하기"/>
-<button onClick="window.location.reload()">다시 입력</button>
+<input type = "button" onClick="window.location.reload()" value = "다시 입력"/>
  </FORM>
 </table>
 
-<br>
+
 
 
 
