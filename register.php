@@ -30,6 +30,34 @@
 
       return false;
     }
+    
+    function checkId() {
+      window.open("checkId.php?userid=" + document.register.userid.value,"IDcheck","left=50, top=50, width=50, height=10, scrollbars=no, resizeable=no");
+    }
+    
+    function checkValue()
+        {
+            if(!document.register.id.value){
+                alert("아이디를 입력하세요.");
+                return false;
+            }
+            
+            if(!document.register.pw.value){
+                alert("비밀번호를 입력하세요.");
+                return false;
+            }
+            
+            // 비밀번호와 비밀번호 확인에 입력된 값이 동일한지 확인
+            if(document.register.pw.value != document.register.pwCheck.value){
+                alert("비밀번호를 동일하게 입력하세요.");
+                return false;
+            }
+            
+            if(!document.register.FirstNum.value || !document.register.middleNum.value || !document.register.lastNum.value){
+                alert("휴대폰번호를 입력하세요.");
+                return false;
+            }
+        }
   </script>
 </head>
 <body style="background-color:#f0f5f3">
@@ -37,13 +65,13 @@
  <h1>회원가입</h1>
  <table boder = "" bgcolor = "#cdfdee" cellspacing = "1" >
  
- <FORM name="register" method="post" action="./insertMember.php">
+ <FORM name="register" method="post" action="./insertMember.php" onsubmit="return checkValue()">
 
   <tr>
    <td text-align="center">아이디 </td>
    <td>
    <input type = "text" name="id" maxlength = "10"/>
-   <input type = "button" value = "중복확인"/>
+   <input type = "button" value = "중복확인" onclick = "checkID()"/>
    </td>
   </tr>
 
