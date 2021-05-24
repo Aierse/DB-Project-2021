@@ -45,7 +45,7 @@
             }
 
             footer {
-                background-color : violet;
+                background-color : #fef8dc;;
                 width : 100%;
                 height : 10%;
                 float : left;
