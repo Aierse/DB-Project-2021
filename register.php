@@ -32,7 +32,7 @@
     }
     
     function checkId() {
-      window.open("checkId.php?userid=" + document.register.userid.value,"IDcheck","left=50, top=50, width=50, height=10, scrollbars=no, resizeable=no");
+      window.open("checkId.php?userid=" + document.register.id.value,"IDcheck","left=50, top=50, width=100, height=20, scrollbars=no, resizeable=no");
     }
     
     function checkValue()
@@ -76,7 +76,7 @@
    <td text-align="center">아이디 </td>
    <td>
    <input type = "text" name="id" maxlength = "10"/>
-   <input type = "button" value = "중복확인" onclick = "checkID()"/>
+   <input type = "button" value = "중복확인" onClick = "checkId()"/>
    </td>
   </tr>
 
