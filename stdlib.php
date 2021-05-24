@@ -3,7 +3,7 @@
       $dbsid = "( DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP) (HOST = localhost) (PORT = 1521) ) ) 
                           (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = orcl) ) ) ";
       
-      $connect = oci_connect($user_id, $user_pw, $);
+      $connect = oci_connect($user_id, $user_pw, $dbsid);
       
       return $connect;
     }
