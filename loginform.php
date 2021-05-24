@@ -1,8 +1,8 @@
 <style>
 /* 로그인 폼 */
     .login {
-        margin : 5%;
-        padding : 5%;
+        margin : 19.016px;
+        padding : 19.016px;
         border : 1px solid black;
         }
 /*라디오 버튼 숨김*/
@@ -14,12 +14,17 @@
 
     .login > input:nth-of-type(1):checked ~ div:nth-of-type(1) { display : block; }
     .login > input:nth-of-type(2):checked ~ div:nth-of-type(2) { display : block; }
+
+    .login > .buttons {
+        width : 100%;
+        
+    }
 /*라벨 모양 지정*/
     .login > .buttons > label {
         display : block;
         float : left;
 
-        width : 49%;
+        width : 149.7655px;
         height : 45px;
         line-height : 45px;
         text-align : center;
@@ -53,8 +58,8 @@
         outline : none;
 
         border : 1px solid gray;
-        padding-left : 4%;
-        width : 94.5%;
+        padding-left : 12.094px;
+        width : 288.437px;
         height : 40px;
         margin-bottom : 5%;
         text-align : left;
@@ -63,7 +68,7 @@
     .logging {
         outline : none;
 
-        width : 99%;
+        width : 302.531px;
         height : 45px;
         border : 1px solid gray;
 

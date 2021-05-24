@@ -11,10 +11,6 @@
                 text-align : center;
             }
 
-            html, body {
-                width : 100%;
-                height : 100%;
-            }
 
             a {
                 text-decoration : none;
@@ -22,32 +18,32 @@
 
             header {
                 width : 100%;
-                height : 20%;
+                height : 187.38px;
                 float : center;
             }
 
             aside {
+                position : absolute;
                 background-color : #fdfcf0;
-                width : 20%;
-                height : 70%;
-                float : left;
+                width : 380.594px;
+                height : 655.891px;
             }
 
             aside > nav {
-                padding : 0 5%;
+                padding : 0 19.016px;
             }
 
             body > section {
                 background-color : skyblue;
                 width : 80%;
-                height : 70%;
+                height : 655.891px;
                 float : right;
             }
 
             footer {
                 background-color : #fef8dc;;
                 width : 100%;
-                height : 10%;
+                height : 93.688px;
                 float : left;
                 text-align : center;
             }
