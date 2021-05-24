@@ -138,9 +138,6 @@
   <tr>
    <td> 휴대폰 </td>
    <td>
-    <input type = "radio" name = "phone"/> SKT
-    <input type = "radio" name = "phone"/> KT
-    <input type = "radio" name = "phone"/> LGU+
    <br>
     <select name="firstNum">
      <option> 010 </option>
