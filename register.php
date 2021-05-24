@@ -52,6 +52,11 @@
                 alert("비밀번호를 동일하게 입력하세요.");
                 return false;
             }
+          
+            if(!document.register.name.value){
+                alert("이름을 입력하세요.");
+                return false;
+            }
             
             if(!document.register.FirstNum.value || !document.register.middleNum.value || !document.register.lastNum.value){
                 alert("휴대폰번호를 입력하세요.");
