@@ -100,7 +100,7 @@
    <td>
     <select name="year">
         <?php
-            $year =1980;
+            $year =1960;
             echo "<option value=''>-- 년도 --</option>";
             while($year<=2015)
             {
@@ -152,11 +152,6 @@
 <input type = "button" onClick="window.location.reload()" value = "다시 입력"/>
  </FORM>
 </table>
-
-
-
-
-
 </center>
 </body>
 </html>
