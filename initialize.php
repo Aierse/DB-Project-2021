@@ -42,7 +42,7 @@
                 background-color : #fdfcf0;
                 padding : 10 10px;
                 left : 380.594px;
-                width : 1502.39px;
+                width : 1522.41px;
                 height : 655.891px;
                 float : right;
             }
@@ -78,9 +78,6 @@
                 </nav>
             </aside>
             <div>
-                <?php
-                    include "seat.php";
-                ?>
             </div>
         </section>
         <footer>
