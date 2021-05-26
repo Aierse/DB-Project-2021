@@ -48,7 +48,7 @@
 
             footer {
                 position : absolute;
-                background-color : #fef8dc;;
+                background-color :  #fdfcf0;
                 width : 100%;
                 height : 93.688px;
                 top : 843.271px;

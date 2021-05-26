@@ -1,6 +1,7 @@
 <style>
     #made > p {
         margin-top : 10px;
+        height : 30px;
         line-height : 30px;
     }
 </style>
