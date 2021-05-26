@@ -20,7 +20,7 @@
                 height : 187.38px;
                 float : center;
             }
-
+            
             aside {
                 position : absolute;
                 background-color : #fdfcf0;
@@ -39,14 +39,16 @@
 
             body > section > div {
                 position : absolute;
-                background-color : skyblue;
+                background-color : #fdfcf0;
+                padding : 10 10px;
                 left : 380.594px;
-                width : 1539.39px;
+                width : 1502.39px;
                 height : 655.891px;
                 float : right;
             }
 
             footer {
+                border-top : 2px solid #bebebe;
                 position : absolute;
                 background-color :  #fdfcf0;
                 width : 100%;
@@ -75,9 +77,10 @@
                     ?>
                 </nav>
             </aside>
-
             <div>
-            asdasdasdas
+                <?php
+                    include "seat.php";
+                ?>
             </div>
         </section>
         <footer>
