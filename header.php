@@ -15,6 +15,6 @@
     }
 </style>
 
-<div id = "head">
+<div id = "head" onclick = "location.href='index.php'">
     <h1>킹갓 영화관</h1>
 </div>
