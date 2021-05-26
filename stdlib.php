@@ -1,6 +1,4 @@
 <?php
-    //ini_set('error_reporting','E_ALL ^ E_NOTICE');
-
     function get_connect($user_id = "dbuser174414", $user_pw = "ce174414") {
         $dbsid = "( DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP) (HOST = localhost) (PORT = 1521) ) ) 
                           (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = orcl) ) ) ";
