@@ -11,7 +11,7 @@
         
     }
 
-    h1 {
+    #head > h1 {
         background-image : url('image/header_background.PNG');
         background-size: 36px;
         position : absolute;
