@@ -41,7 +41,7 @@
         $data = htmlspecialchars($data);
         return $data;
     }
-    // 아이디로 멤버 아이디 검색
+    // 아이디로 Customer 테이블 아이디 검색
     function search_member($user_id, $connect = null) {
         if (!isset($connect))
             $connect = get_connect();
@@ -53,7 +53,7 @@
 
         return query_with_disconnect($connect, $stid, $sql);
     }
-    // 휴대폰 번호로 멤버 ID 찾기
+    // 휴대폰 번호로 Customer 테이블 아이디 찾기
     function search_member_id($user_phone_number, $connect = null) {
         if (!isset($connect))
             $connect = get_connect();
