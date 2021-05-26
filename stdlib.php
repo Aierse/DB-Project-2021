@@ -65,7 +65,7 @@
 
         return query_with_disconnect($connect, $stid, $sql);
     }
-
+    // ID와 휴대폰 번호로 비밀번호 수정
     function update_member_pw($user_id, $user_phone_number, $connect = null) {
         if (!isset($connect))
             $connect = get_connect();

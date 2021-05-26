@@ -78,6 +78,9 @@
                 </nav>
             </aside>
             <div>
+                <?php
+                    include "seat.php";
+                ?>
             </div>
         </section>
         <footer>
