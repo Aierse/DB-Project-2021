@@ -10,30 +10,29 @@
     .screen {
         font-size : 80px;
         color : gray;
-        letter-spacing : 16px;
     }
 
     .seat td {
         border : 1px solid black;
-        padding : 20px;
+        width : 80px;
+        height : 80px;
         margin : 3px;
+        font-size : 30px;
     }
 </style>
 <table class = "seat">
     <caption class = "screen">스크린</caption>
     </thead>
     <tbody>
-        <tr>
-            <td>1-1</td>
-            <td>1-2</td>
-            <td>1-3</td>
-            <td>1-4</td>
-            <td>1-5</td>
-            <td>1-6</td>
-            <td>1-7</td>
-            <td>1-8</td>
-            <td>1-9</td>
-            <td>1-10</td>
-        </tr>
+        <?php
+
+            for ($i = 1; $i <=5; $i++) {
+                echo "<tr>";
+                for ($j = 1; $j <= 10; $j++){
+                    echo "<td>$i-$j</td>";
+                }
+                echo "</tr>";
+            }
+        ?>
     </tbody>
 </table>
