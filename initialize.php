@@ -11,7 +11,6 @@
                 text-align : center;
             }
 
-
             a {
                 text-decoration : none;
             }
@@ -34,16 +33,25 @@
             }
 
             body > section {
+                width : 100%;
+                display : block;
+            }
+
+            body > section > div {
+                position : absolute;
                 background-color : skyblue;
-                width : 80%;
+                left : 380.594px;
+                width : 1539.39px;
                 height : 655.891px;
                 float : right;
             }
 
             footer {
+                position : absolute;
                 background-color : #fef8dc;;
                 width : 100%;
                 height : 93.688px;
+                top : 843.271px;
                 float : left;
                 text-align : center;
             }
@@ -55,21 +63,23 @@
                 include "header.php";
             ?>
         </header>
-
-        <aside>
-            <?php
-                include "loginform.php";
-            ?>
-            <nav>
-                <?php
-                    include "menu.php";
-                ?>
-            </nav>
-        </aside>
-
+        
         <section>
-        </section>
+            <aside>
+                <?php
+                    include "loginform.php";
+                ?>
+                <nav>
+                    <?php
+                        include "menu.php";
+                    ?>
+                </nav>
+            </aside>
 
+            <div>
+            asdasdasdas
+            </div>
+        </section>
         <footer>
             <?php
                 include "footer.php";
