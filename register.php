@@ -144,7 +144,7 @@
      <option> 011 </option>
      <option> 016 </option>
      <option> 018 </option>
-    </select>
+    </select> - 
     <input type = "text" name="middleNum" size = "4" maxlength = "4" onkeypress='return checkNumber(event)'/> - <input type = "text" name="lastNum"size = "4" maxlength = "4" onkeypress='return checkNumber(event)'/>
    </td>
   </tr>
