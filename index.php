@@ -15,7 +15,6 @@
                 text-decoration : none;
             }
 
-
             
             aside {
                 position : absolute;
