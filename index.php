@@ -15,11 +15,7 @@
                 text-decoration : none;
             }
 
-            header {
-                width : 100%;
-                height : 187.38px;
-                float : center;
-            }
+
             
             aside {
                 position : absolute;
@@ -60,11 +56,9 @@
         </style>
     </head>
     <body>
-        <header>
-            <?php
-                include "header.php";
-            ?>
-        </header>
+        <?php
+            include "header.php";
+        ?>
         
         <section>
             <aside>
