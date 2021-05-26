@@ -14,8 +14,6 @@
             a {
                 text-decoration : none;
             }
-
-
             
             aside {
                 position : absolute;
@@ -72,9 +70,9 @@
                 </nav>
             </aside>
             <div>
-				<?php
-					include "find_id_pw.php";
-				?>
+		    <?php
+			include "find_id_pw.php";
+		    ?>
             </div>
         </section>
         <footer>
