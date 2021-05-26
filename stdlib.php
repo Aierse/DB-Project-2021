@@ -33,6 +33,17 @@
             
             return false;
         }
+
+        else if (explode(' ',$sql)[0] == "INSERT") {
+            if (oci_excute($stid)) {
+                oci_free_statement($stid);
+                oci_close($connect);
+
+                return true;
+            }
+
+            return false;
+        }
     }
 
     function check_input($data) {
