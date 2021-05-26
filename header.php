@@ -8,7 +8,6 @@
     #head {
         width : 100%;
         position : absolute;
-        
     }
 
     #head > h1 {
@@ -20,9 +19,19 @@
         line-height : 187.39px;
         letter-spacing : 12px;
     }
+
+    #head > h1 > a:link { 
+        color : black;
+        text-decoration : none;
+    }
+    
+    #head > h1 > a:visited { 
+        color : black;
+        text-decoration : none;
+    }
 </style>
 <header id = "header">
     <div id = "head" onclick = "location.href='index.php'">
-        <h1>킹갓 영화관</h1>
+        <h1><a href = "#">킹갓 영화관</a></h1>
     </div>
 </header>
