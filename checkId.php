@@ -3,13 +3,12 @@
 
     $id=check_input($_GET['id']);
 
-    $row=search_member(get_connect(),$id);
+    $row = search_member($id);
 
-    if($row==NULL){
+    if($row==NULL)
         echo "성공";
-    }
     else 
-    echo "실패";
+        echo "실패";
     
 ?>
 <!DOCTYPE html>
