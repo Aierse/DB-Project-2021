@@ -1,7 +1,7 @@
 <?php
-    include "stdlib.php";
+	include "stdlib.php";
 
-    $conn = get_connect();
+	$conn = get_connect();
 	
 	$sql = "INSERT INTO CUSTOMER(customer_id,user_id,user_pw,birth,name,phone_number)
 				VALUES(CUSTOMER_SEQ.NEXTVAL,:user_id,:user_pw,:birth,:name,:phone_number)";
@@ -21,22 +21,16 @@
 	$middleNum = check_input($_POST['middleNum']);
 	$lastNum = check_input($_POST['lastNum']);
 	
-
-	
 	$birth = (string)$year."-".$month."-".$day;
 	$phone_number = (string)$firstNum.$middleNum.$lastNum;
-	
 	
 	oci_bind_by_name($stid, ":user_id", $user_id);
 	oci_bind_by_name($stid, ":user_pw", $user_pw);
 	oci_bind_by_name($stid, ":birth", $birth);
 	oci_bind_by_name($stid, ":name", $name);
 	oci_bind_by_name($stid, ":phone_number", $phone_number);
-	
-    echo $birth ;
-    echo $phone_number;
 
-	$result = (oci_execute($stid) ) ? 'Succes' : 'Fail';
+	$result = query_with_disconnect($conn, $stid, $sql) ? '성공' : '실패';
 	echo $result;
 	
 	oci_commit($conn);
