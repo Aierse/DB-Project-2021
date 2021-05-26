@@ -6,19 +6,21 @@
   <title>회원가입 페이지</title>
 
   <style>
- h, td, tr, input,button, textarea, select, FORM
- {
+ h, td, tr, input,button, textarea, select, FORM{
    font-family:고딕;
   font-size:1em;
   border-radius:5px;
   
  }
  
- table, FORM
- {
-  border:1px solid rgba(36, 228, 172, 0.29);
+ table{
   border-spacing:15px;
+  text-align:center;
+	margin-left:auto; 
+	margin-right:auto;
+	width:500px;
  }
+
   </style>
   <script>
     function checkNumber(event) {
@@ -65,21 +67,25 @@
         }
   </script>
 </head>
-<body style="background-color:#f0f5f3">
- <center>
+<body>
  <h1>회원가입</h1>
  <table boder = "" bgcolor = "#cdfdee" cellspacing = "1" >
  
  <FORM name="register" method="post" action="./insertMember.php" onsubmit="return checkValue()">
 
-  <tr>
-   <td text-align="center">아이디 </td>
+<tr>
+
+<td text-align="center">아이디 </td>
+
    <td>
    <input type = "text" name="id" maxlength = "10"/>
+   </td>
+   <td>
    <input type = "button" value = "중복확인" onClick = "checkId()"/>
    </td>
-  </tr>
 
+  </tr>
+  
   <tr>
    <td> 비밀번호 </td>
    <td> <input type = "password" name="pw" maxlength = "10"/> </td>
@@ -109,8 +115,8 @@
             }
         ?>
      </select>
-    </tb>
-    <tb>
+  
+ 
      <select name="month">
         <?php
             $month =1;
@@ -133,12 +139,12 @@
             }
         ?>
       </select>
+      </td>
   </tr>
 
   <tr>
    <td> 휴대폰 </td>
    <td>
-   <br>
     <select name="firstNum">
      <option> 010 </option>
      <option> 011 </option>
@@ -147,11 +153,13 @@
     </select> - 
     <input type = "text" name="middleNum" size = "4" maxlength = "4" onkeypress='return checkNumber(event)'/> - <input type = "text" name="lastNum"size = "4" maxlength = "4" onkeypress='return checkNumber(event)'/>
    </td>
+
   </tr>
   <input type = "submit" value = "가입하기"/>
 <input type = "button" onClick="window.location.reload()" value = "다시 입력"/>
- </FORM>
+</FORM>
 </table>
-</center>
+
+
 </body>
 </html>
