@@ -63,20 +63,20 @@
 			<FORM name="register" method="post" action="./insertMember.php" onsubmit="return checkValue()">
 				<tr>
 					<td text-align="center">아이디 </td>
-					<td><input type = "text" name="id" maxlength = "10"/></td>
+					<td><input type = "text" name="id" maxlength = "10" placeholder="최대10글자."/></td>
 					<td><input type = "button" value = "중복확인" onClick = "checkId()"/></td>
 				</tr>
 				<tr>
 					<td> 비밀번호 </td>
-					<td><input type = "password" name="pw" maxlength = "10"/></td>
+					<td><input type = "password" name="pw" maxlength = "10" placeholder="최대10글자."/></td>
 				</tr>
 				<tr>
 					<td> 비밀번호 확인 </td>
-					<td> <input type = "password" name="pwCheck" maxlength = "10"/> </td>
+					<td> <input type = "password" name="pwCheck" maxlength = "10" placeholder="비밀번호 확인해주세요."/> </td>
 				</tr>
 				<tr>
 					<td> 성명 </td>
-					<td> <input type = "text" name="name" maxlength = "10"/> </td>
+					<td> <input type = "text" name="name" maxlength = "10" placeholder="이름을 적어주세요."/> </td>
 				</tr>
 				<tr>
 					<td> 생년월일 </td>
