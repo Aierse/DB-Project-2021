@@ -1,22 +1,21 @@
 <?php
 	function get_connect($user_id = "dbuser174414", $user_pw = "ce174414") {
 		$dbsid = "( DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP) (HOST = localhost) (PORT = 1521) ) ) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = orcl) ) ) ";
-
 		$connect = oci_connect($user_id, $user_pw, $dbsid);
 
 		return $connect;
 	}
 	// 쿼리 실행과 해제를 담당
-	function query_with_disconnect($connnect, $stid, $sql) {
+	function query_with_disconnect($connect, $stid, $sql) {
 		if (explode(' ',$sql)[0] == "SELECT") {
 			if (oci_execute($stid)) {
-		$row = oci_fetch_array($stid, OCI_ASSOC);
+				$row = oci_fetch_array($stid, OCI_ASSOC);
 
-			oci_free_statement($stid);
-			oci_close($connect);
+				oci_free_statement($stid);
+				oci_close($connect);
 
-			if (count($row)) // 결과가 있다면 결과를 반환
-				return $row;
+				if (count($row)) // 결과가 있다면 결과를 반환
+					return $row;
 			}
 
 			return null;
