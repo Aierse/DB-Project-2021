@@ -58,7 +58,7 @@
 		if (!isset($connect))
 			$connect = get_connect();
 
-		$sql = "SELECT user_id FROM Customer WHERE user_phone_number = :user_phone_number";
+		$sql = "SELECT user_id FROM Customer WHERE phone_number = :user_phone_number";
 		$stid = oci_parse($connect, $sql);
 
 		oci_bind_by_name($stid, ":user_phone_number", $user_phone_number);

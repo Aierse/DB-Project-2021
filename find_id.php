@@ -10,9 +10,13 @@
 	<?php
 		include "stdlib.php";
 
-		$user_phone_number = 'phoneNumber';
+		$phone_number = check_input($_POST['phonenumber']);
 
-		search_member_id($user_phone_number);
+		$result = search_member_id($phone_number);
+		$count = count($result);
+
+		echo "$count";
+		echo "회원님이 생성하신 계정입니다.";
 	?>
 </body>
 </html>
