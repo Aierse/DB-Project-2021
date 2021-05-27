@@ -30,10 +30,14 @@
 	oci_bind_by_name($stid, ":name", $name);
 	oci_bind_by_name($stid, ":phone_number", $phone_number);
 
-	$result = query_with_disconnect($conn, $stid, $sql) ? '성공' : '실패';
-	echo $result;
+	$result = query_with_disconnect($conn, $stid, $sql);
 	
-	oci_commit($conn);
-	oci_free_statement($stid);
-	oci_close($conn);
+	if ($result) {
+		echo "alert('실패')";
+		echo "<script>location.href='index.php'</script>";
+	}
+	else {
+		echo "alert('실패')";
+		echo "<script>location.href='index.php'</script>";
+	}
 ?>
