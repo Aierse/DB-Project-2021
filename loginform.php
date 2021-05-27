@@ -65,9 +65,9 @@
 /*로그인 버튼*/
 	.logging {
 		outline : none;
-	width : 302.531px;
-	height : 45px;
-	border : 1px solid gray;
+		width : 302.531px;
+		height : 45px;
+		border : 1px solid gray;
 
 		background-color : #e71a0f;
 		font-weight: 700;
