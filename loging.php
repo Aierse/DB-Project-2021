@@ -13,6 +13,12 @@
 		if ($row != NULL) {
 			$_SESSION['id'] = $row[0];
 			$_SESSION['name'] = $row[1];
+
+			echo "<script>location.href='index.php'</script>";
+		}
+		else {
+			echo "<script>location.href='index.php'</script>";
+			echo "<script>alert('로그인 실패');</script>";
 		}
 	}
 	else {
