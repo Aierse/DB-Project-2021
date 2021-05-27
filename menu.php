@@ -1,35 +1,34 @@
 <style>
-    .menu {
-        list-style-type : none;
-        margin-top : 10%;
-        
-        border-left : 1px solid #bebebe;
-        border-right : 1px solid #bebebe;
-    }
+	.menu {
+		list-style-type : none;
+		margin-top : 10%;
 
-    .menu > li {
-        height : 90px;
-        line-height : 90px;
+		border-left : 1px solid #bebebe;
+		border-right : 1px solid #bebebe;
+	}
 
-        width : 100%;
+	.menu > li {
+		height : 90px;
+		line-height : 90px;
 
-        text-align : center;
-        font-weight: 700;
-        font-size : 20px;
-        letter-spacing : 16px;
-        color : #e71a0f;
-    }
+		width : 100%;
+		text-align : center;
+		font-weight: 700;
+		font-size : 20px;
+		letter-spacing : 16px;
+		color : #e71a0f;
+	}
 
-    .menu > li:hover {
-        transition-duration: 1s;
-        background-color : #e71a0f;
+	.menu > li:hover {
+		transition-duration: 1s;
+		background-color : #e71a0f;
 
-        color : white;
-    }
+		color : white;
+	}
 </style>
 
 <ul class = "menu">
-    <li onclick="상영영화()">상영 영화</li>
-    <li onclick="location.href='seatmenu.php'">좌석 보기</li>
-    <li onclick="음식보기()">음식 보기</li>
+	<li onclick="상영영화()">상영 영화</li>
+	<li onclick="location.href='seatmenu.php'">좌석 보기</li>
+	<li onclick="음식보기()">음식 보기</li>
 </ul>

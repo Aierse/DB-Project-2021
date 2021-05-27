@@ -13,7 +13,12 @@
 
 <aside>
 	<?php
-		include "loginform.php";
+		if (!isset($_SESSION)) {
+			include "loginform.php";
+		}
+		else {
+			include "logingform.php";
+		}
 	?>
 	<nav>
 		<?php

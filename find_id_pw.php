@@ -40,19 +40,17 @@
 		<fieldset>
 			<legend>PW 찾기</legend>
 			<table>
-			    <tr>
-			        <td>ID</td>
-			        <td><input type="text" name="id" maxlength="10" placeholder="ID"></td>
-			    </tr>
-			    <tr>
-			        <td>전화번호</td>
-				    <td><input type="text" name="phoneNumber" maxlength="11" placeholder="전화번호( - 없이 작성)"></td>
+				<tr>
+					<td>ID</td>
+					<td><input type="text" name="id" maxlength="10" placeholder="ID"></td>
+				</tr>
+				<tr>
+					<td>전화번호</td>
+					<td><input type="text" name="phoneNumber" maxlength="11" placeholder="전화번호( - 없이 작성)"></td>
 				</tr>
 			</table>
 			<input type="submit" name= "find_PW"value= "PW 찾기">
 		</fieldset>
 	</form>
-
 </body>
 </html>
-			
