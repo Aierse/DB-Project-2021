@@ -9,13 +9,13 @@
 	function query_with_disconnect($connect, $stid, $sql) {
 		if (explode(' ',$sql)[0] == "SELECT") {
 			if (oci_execute($stid)) {
-		$row = oci_fetch_array($stid, OCI_ASSOC);
+				$row = oci_fetch_array($stid, OCI_ASSOC);
 
-			oci_free_statement($stid);
-			oci_close($connect);
+				oci_free_statement($stid);
+				oci_close($connect);
 
-			if (count($row)) // 결과가 있다면 결과를 반환
-				return $row;
+				if (count($row)) // 결과가 있다면 결과를 반환
+					return $row;
 			}
 
 			return null;
