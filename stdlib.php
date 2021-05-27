@@ -91,4 +91,17 @@
 
 		return query_with_disconnect($connect, $stid, $sql);
 	}
+
+	function login_non_member($reserve_id, $user_phone_number, $connect = null) {
+		if (!isset($connect))
+			$connect = get_connect();
+
+		$sql = "SELECT reserve_id, phone_number FROM Reserve WHERE reserve_id = :reserve_id AND phone_number = :user_phone_number"
+		$stid = oci_parse($connect, $sql);
+
+		oci_bind_by_name($stid, ":reserve_id", $reserve_id);
+		oci_bind_by_name($stid, ":user_phone_number", $user_phone_number);
+
+		return query_with_disconnect($connect, $stid, $sql);
+	}
 ?>

@@ -40,6 +40,9 @@
 				include "aside.php";
 			?>
 			<div>
+				<?php
+				include "movie.php";
+				?>
 			</div>
 		</section>
 		<?php

@@ -144,7 +144,7 @@
 		<input class = "account" name = "member_pw" type = "password" placeholder = "Password" maxlength = "10">
 	</div>
 	<div>
-		<input class = "non-account" name = "non_member_id" type = "text" placeholder = "비회원 번호" maxlength = "10">
+		<input class = "non-account" name = "non_member_id" type = "text" placeholder = "예약 번호" maxlength = "10">
 		<input class = "non-account" name = "non_member_phone_number" type = "text" placeholder = "휴대폰 번호" maxlength = "10">
 	</div>
 	<input class = "logging" type = "submit" value = "로그인">
