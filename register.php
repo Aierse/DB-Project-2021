@@ -9,7 +9,6 @@
 				font-size:1em;
 				border-radius:5px;
 			}
-
 			table{
 				border-spacing:15px;
 				text-align:center;
@@ -64,20 +63,20 @@
 			<FORM name="register" method="post" action="./insertMember.php" onsubmit="return checkValue()">
 				<tr>
 					<td text-align="center">아이디 </td>
-					<td><input type = "text" name="id" maxlength = "10"/></td>
+					<td><input type = "text" name="id" maxlength = "10" placeholder="최대10글자."/></td>
 					<td><input type = "button" value = "중복확인" onClick = "checkId()"/></td>
 				</tr>
 				<tr>
 					<td> 비밀번호 </td>
-					<td><input type = "password" name="pw" maxlength = "10"/></td>
+					<td><input type = "password" name="pw" maxlength = "10" placeholder="최대10글자."/></td>
 				</tr>
 				<tr>
 					<td> 비밀번호 확인 </td>
-					<td> <input type = "password" name="pwCheck" maxlength = "10"/> </td>
+					<td> <input type = "password" name="pwCheck" maxlength = "10" placeholder="비밀번호 확인해주세요."/> </td>
 				</tr>
 				<tr>
 					<td> 성명 </td>
-					<td> <input type = "text" name="name" maxlength = "10"/> </td>
+					<td> <input type = "text" name="name" maxlength = "10" placeholder="이름을 적어주세요."/> </td>
 				</tr>
 				<tr>
 					<td> 생년월일 </td>
@@ -126,8 +125,16 @@
 						<input type = "text" name="middleNum" size = "4" maxlength = "4" onkeypress='return checkNumber(event)'/> - <input type = "text" name="lastNum"size = "4" maxlength = "4" onkeypress='return checkNumber(event)'/>
 					</td>
 				</tr>
-			<input type = "submit" value = "가입하기"/>
-			<input type = "button" onClick="window.location.reload()" value = "다시 입력"/>
+				<tr>
+					<td>
+						<input type = "submit" value = "가입하기"/>
+					</td>
+					<td>
+					</td>
+					<td>
+						<input type = "button" onClick="window.location.reload()" value = "다시 입력"/>
+					</td
+				</tr>
 			</FORM>
 		</table>
 	</body>
