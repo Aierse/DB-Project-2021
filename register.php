@@ -9,7 +9,6 @@
 				font-size:1em;
 				border-radius:5px;
 			}
-
 			table{
 				border-spacing:15px;
 				text-align:center;
@@ -126,8 +125,16 @@
 						<input type = "text" name="middleNum" size = "4" maxlength = "4" onkeypress='return checkNumber(event)'/> - <input type = "text" name="lastNum"size = "4" maxlength = "4" onkeypress='return checkNumber(event)'/>
 					</td>
 				</tr>
-			<input type = "submit" value = "가입하기"/>
-			<input type = "button" onClick="window.location.reload()" value = "다시 입력"/>
+				<tr>
+					<td>
+						<input type = "submit" value = "가입하기"/>
+					</td>
+					<td>
+					</td>
+					<td>
+						<input type = "button" onClick="window.location.reload()" value = "다시 입력"/>
+					</td
+				</tr>
 			</FORM>
 		</table>
 	</body>
