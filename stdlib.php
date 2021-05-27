@@ -7,7 +7,9 @@
 	}
 	// 쿼리 실행과 해제를 담당
 	function query_with_disconnect($connect, $stid, $sql) {
-		if (explode(' ',$sql)[0] == "SELECT") {
+		$type = explode(' ',$sql)[0];
+
+		if ($type == "SELECT") {
 			if (oci_execute($stid)) {
 				$row = oci_fetch_array($stid, OCI_ASSOC);
 
@@ -21,19 +23,8 @@
 			return null;
 		}
 
-		else if (explode(' ',$sql)[0] == "UPDATE") {
+		else if ($type == "UPDATE" || $type == "INSERT") {
 			if (oci_execute($stid)) {
-				oci_free_statement($stid);
-				oci_close($connect);
-
-				return true;
-			}
-
-			return false;
-		}
-
-		else if (explode(' ',$sql)[0] == "INSERT") {
-			if (oci_excute($stid)) {
 				oci_free_statement($stid);
 				oci_close($connect);
 
@@ -84,6 +75,19 @@
 
 		oci_bind_by_name($stid, ":user_id", $user_id);
 		oci_bind_by_name($stid, ":user_phone_number", $user_phone_number);
+
+		return query_with_disconnect($connect, $stid, $sql);
+	}
+	// ID와 비밀번호로 Customer 아이디 로그인
+	function login($user_id, $user_pw, $connect = null) {
+		if (!isset($connect))
+			$connect = get_connect();
+
+		$sql = "SELECT user_id, name FROM Customer WHERE user_id = :user_id AND user_pw = :user_pw";
+		$stid = oci_parse($connect, $sql);
+
+		oci_bind_by_name($stid, ":user_id", $user_id);
+		oci_bind_by_name($stid, ":user_pw", $user_pw);
 
 		return query_with_disconnect($connect, $stid, $sql);
 	}
