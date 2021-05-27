@@ -33,10 +33,13 @@
 	}
 </style>
 
-<form id = "loging">
+<div id = "loging">
 	<div>
 		<p>
-			<strong>가나다님</strong>
+			<?php
+				$name = $_SESSION['name'];
+				echo "<strong>$name"." 님</strong>"
+			?>
 		</p>
 		<nav id = "account_menu">
 			<li>
@@ -45,5 +48,5 @@
 			</li>
 		</nav>
 	</div>
-	<button class = "logout">로그 아웃</button>
-</form>
+	<button class = "logout" onclick = "location.href='logout.php'">로그 아웃</button>
+</div>

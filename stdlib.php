@@ -11,7 +11,7 @@
 
 		if ($type == "SELECT") {
 			if (oci_execute($stid)) {
-				$row = oci_fetch_array($stid, OCI_ASSOC);
+				$row = oci_fetch_array($stid, OCI_NUM);
 
 				oci_free_statement($stid);
 				oci_close($connect);
