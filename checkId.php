@@ -9,11 +9,11 @@
 	<?php
 		include "stdlib.php";
 
-		$id=check_input($_GET['id']);
+		$id = check_input($_GET['id']);
 
 		$row = search_member($id);
 
-		if($row==NULL)
+		if($row == NULL)
 			echo "사용할 수 있는 아이디입니다.";
 		else 
 			echo "중복된 아이디입니다.";

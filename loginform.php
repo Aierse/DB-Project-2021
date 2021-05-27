@@ -105,21 +105,47 @@
 		color: #5a5a5a;
 	}
 </style>
+<script>
+	function checkvalue_login(){
+		if (document.querySelector('input[name="tab"]:checked').value == "member") {
+			if(!document.login.member_id.value) {
+				alert("아이디를 입력하세요.");
+				return false;
+			}
 
-<form class = "login">
-	<input id = "member" type = "radio" name = "tab" checked = "checked">
-	<input id = "non-member" type = "radio" name = "tab">
+			if(!document.login.member_pw.value) {
+				alert("비밀번호를 입력하세요.");
+				return false;
+			}
+		}
+
+		else {
+			if(!document.login.non_member_id.value) {
+				alert("비회원 번호를 입력하세요.");
+				return false;
+			}
+
+			if(!document.login.non_member_phone_number.value) {
+				alert("핸드폰 번호를 입력하세요.");
+				return false;
+			}
+		}
+	}
+</script>
+<form class = "login" name = "login" method = "POST" action = "loging.php" onsubmit="return checkvalue_login()">
+	<input id = "member" value = "member" type = "radio" name = "tab" checked = "checked">
+	<input id = "non-member" value = "non-member" type = "radio" name = "tab">
 	<section class = "buttons">
 		<label class = "first" for = "member">회원</label>
 		<label class = "second" for = "non-member">비회원</label>
 	</section>
 	<div>
-		<input class = "account" type = "text" placeholder = "ID"  maxlength = "10">
-		<input class = "account" type = "password" placeholder = "Password" maxlength = "10">
+		<input class = "account" name = "member_id" type = "text" placeholder = "ID"  maxlength = "10">
+		<input class = "account" name = "member_pw" type = "password" placeholder = "Password" maxlength = "10">
 	</div>
 	<div>
-		<input class = "non-account" type = "text" placeholder = "비회원 번호" maxlength = "10">
-		<input class = "non-account" type = "text" placeholder = "휴대폰 번호" maxlength = "10">
+		<input class = "non-account" name = "non_member_id" type = "text" placeholder = "비회원 번호" maxlength = "10">
+		<input class = "non-account" name = "non_member_phone_number" type = "text" placeholder = "휴대폰 번호" maxlength = "10">
 	</div>
 	<input class = "logging" type = "submit" value = "로그인">
 	<div class = "manage">

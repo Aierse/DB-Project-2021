@@ -13,7 +13,7 @@
 
 <aside>
 	<?php
-		if (!isset($_SESSION)) {
+		if (!isset($_SESSION['id'])) {
 			include "loginform.php";
 		}
 		else {
