@@ -22,7 +22,6 @@
 	.menu > li:hover {
 		transition-duration: 1s;
 		background-color : #e71a0f;
-
 		color : white;
 	}
 </style>
