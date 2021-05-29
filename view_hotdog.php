@@ -45,7 +45,7 @@
 		<td><img src="image/음식사진/핫도그.jpg" width=200 height=200></td>
 		<td><img src="image/음식사진/핫도그.jpg" width=200 height=200></td>
 		<td><img src="image/음식사진/아메리칸 핫도그.jpg" width=200 height=200></td>
-		<td><img src="image/음식사진/어니언.jpg" width=200 height=200></td>
+		<td><img src="image/음식사진/어니언 핫도그.jpg" width=200 height=200></td>
 		<td><img src="image/음식사진/핫바.jpg" width=200 height=200></td>
 	</tr>
 	<tr align=center>
