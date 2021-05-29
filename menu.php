@@ -29,5 +29,5 @@
 <ul class = "menu">
 	<li onclick="상영영화()">상영 영화</li>
 	<li onclick="location.href='seatmenu.php'">좌석 보기</li>
-	<li onclick="음식보기()">음식 보기</li>
+	<li onclick="location.href='view_food_menu.php'">음식 보기</li>
 </ul>
