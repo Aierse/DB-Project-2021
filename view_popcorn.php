@@ -39,22 +39,24 @@
 		<li><a class="set" href="view_set_menu.php">SET</a></li>
 	</ul>
 </div>
-
-<h1>Snack</h1>
+<h1>POP Corn</h1>
 <table border>
 	<tr>
-		<td><img src="image/음식사진/츄러스.jpg" width=200 height=200></td>
-		<td><img src="image/음식사진/프레즐.jpg" width=200 height=200></td>
-		<td><img src="image/음식사진/나쵸.jpg" width=200 height=200></td>
+		<td><img src="image/음식사진/오리지널.jpg" width=200 height=200></td>
+		<td><img src="image/음식사진/치즈.jpg" width=200 height=200></td>
+		<td><img src="image/음식사진/카라멜.jpg" width=200 height=200></td>
+		<td><img src="image/음식사진/어니언.jpg" width=200 height=200></td>
 	</tr>
 	<tr align=center>
-		<td>츄러스</td>
-		<td>프레즐</td>
-		<td>나쵸</td>
-	</tr>
+		<td>오리지널 팝콘</td>
+		<td>치즈 팝콘</td>
+		<td>카라멜 팝콘</td>
+		<td>어니언 팝콘</td>
+	</td>
 	<tr align=center>
 		<td>3000원</td>
 		<td>3000원</td>
 		<td>3000원</td>
-	</tr>
+		<td>3000원</td>
+	</td>
 </table>

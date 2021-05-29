@@ -39,22 +39,27 @@
 		<li><a class="set" href="view_set_menu.php">SET</a></li>
 	</ul>
 </div>
-
-<h1>Snack</h1>
+<h1>Hot Dog</h1>
 <table border>
 	<tr>
-		<td><img src="image/음식사진/츄러스.jpg" width=200 height=200></td>
-		<td><img src="image/음식사진/프레즐.jpg" width=200 height=200></td>
-		<td><img src="image/음식사진/나쵸.jpg" width=200 height=200></td>
+		<td><img src="image/음식사진/핫도그.jpg" width=200 height=200></td>
+		<td><img src="image/음식사진/핫도그.jpg" width=200 height=200></td>
+		<td><img src="image/음식사진/아메리칸 핫도그.jpg" width=200 height=200></td>
+		<td><img src="image/음식사진/어니언.jpg" width=200 height=200></td>
+		<td><img src="image/음식사진/핫바.jpg" width=200 height=200></td>
 	</tr>
 	<tr align=center>
-		<td>츄러스</td>
-		<td>프레즐</td>
-		<td>나쵸</td>
+		<td>핫도그</td>
+		<td>치즈 핫도그</td>
+		<td>아메리칸 핫도그</td>
+		<td>어니언 핫도그</td>
+		<td>핫바</td>
 	</tr>
 	<tr align=center>
+		<td>2500원</td>
 		<td>3000원</td>
+		<td>2500원</td>
 		<td>3000원</td>
-		<td>3000원</td>
+		<td>2000원</td>
 	</tr>
 </table>

@@ -39,22 +39,33 @@
 		<li><a class="set" href="view_set_menu.php">SET</a></li>
 	</ul>
 </div>
-
-<h1>Snack</h1>
+<h1>Drink</h1>
 <table border>
 	<tr>
-		<td><img src="image/음식사진/츄러스.jpg" width=200 height=200></td>
-		<td><img src="image/음식사진/프레즐.jpg" width=200 height=200></td>
-		<td><img src="image/음식사진/나쵸.jpg" width=200 height=200></td>
+		<td><img src="image/음식사진/콜라.jpg" width=200 height=200></td>
+		<td><img src="image/음식사진/사이다.jpg" width=200 height=200></td>
+		<td><img src="image/음식사진/아메리카노.jpg" width=200 height=200></td>
+		<td><img src="image/음식사진/에스프레소.jpg" width=200 height=200></td>
+		<td><img src="image/음식사진/카페라테.jpg" width=200 height=200></td>
+		<td><img src="image/음식사진/카페모카.png" width=200 height=200></td>
+		<td><img src="image/음식사진/카푸치노.jpg" width=200 height=200></td>
 	</tr>
 	<tr align=center>
-		<td>츄러스</td>
-		<td>프레즐</td>
-		<td>나쵸</td>
+		<td>콜라</td>
+		<td>사이다</td>
+		<td>아메리카노</td>
+		<td>에스프레소</td>
+		<td>카페라테</td>
+		<td>카페모카</td>
+		<td>카푸치노</td>
 	</tr>
 	<tr align=center>
-		<td>3000원</td>
-		<td>3000원</td>
-		<td>3000원</td>
+		<td>2000원</td>
+		<td>2000원</td>
+		<td>2000원</td>
+		<td>2000원</td>
+		<td>2000원</td>
+		<td>2000원</td>
+		<td>2000원</td>
 	</tr>
 </table>
