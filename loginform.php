@@ -72,6 +72,7 @@
 		background-color : #e71a0f;
 		font-weight: 700;
 		font-size : 16px;
+		padding-left : 16px;
 		letter-spacing : 16px;
 		color : white;
 	}

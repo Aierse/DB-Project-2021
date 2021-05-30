@@ -11,10 +11,11 @@
 		height : 90px;
 		line-height : 90px;
 
-		width : 100%;
+		width : 324.56px;
 		text-align : center;
 		font-weight: 700;
 		font-size : 20px;
+		padding-left : 16px;
 		letter-spacing : 16px;
 		color : #e71a0f;
 	}
@@ -27,7 +28,7 @@
 </style>
 
 <ul class = "menu">
-	<li onclick="상영영화()">상영 영화</li>
-	<li onclick="location.href='seatmenu.php'">좌석 보기</li>
-	<li onclick="location.href='view_food_menu.php'">음식 보기</li>
+	<li onclick="location.href = 'index.php'">상영 영화</li>
+	<li onclick="location.href = 'seatmenu.php'">좌석 보기</li>
+	<li onclick="location.href = 'view_food_menu.php'">음식 보기</li>
 </ul>
