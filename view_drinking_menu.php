@@ -41,7 +41,7 @@
 			?>
 			<div>
 				<?php
-					include "view_drink.php";
+					include "view_drinking.php";
 				?>
 			</div>
 		</section>
