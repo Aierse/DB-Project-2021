@@ -60,23 +60,26 @@
 		padding-left : 30px;
 	}
 </style>
-<script>
-	var slideindex = 1;
-
-	function plusslides(n) {
-		slideindex += n;
-	}
-</script>
+<?php
+	if (!isset($_GET['slideindex']))
+		$slideindex = 1;
+	else
+		$slideindex = $_GET['slideindex'];
+?>
 <div id = "movie">
-	<form method = "POST" action = "index.php">
-		<a class="prev" onclick="plusslides(-1)">&#10094;</a>
-		<a class="next" onclick="plusslides(1)">&#10095;</a>
-	</form>
+	<?php
+		$prev = $slideindex - 3;
+		$next = $slideindex + 3;
+		echo "<a class='prev' href = 'index.php?slideindex=$prev'>&#10094;</a>";
+		echo "<a class='next' href = 'index.php?slideindex=$next'>&#10095;</a>";
+	?>
 	<table border>
 		<tr class = "name_area">
-			<td><h1>테스트1</h1>
-			<td><h1>테스트2</h1>
-			<td><h1>테스트3</h1>
+			<?php
+				for ($i = $slideindex; $i < $slideindex + 3; $i++) {
+					echo "<td><h1>테스트$i</h1></td>";
+				}
+			?>
 		</tr>
 		<tr class = "img_area">
 			<td><img src="image/testimage.png" alt="이미지 불러오기에 실패했습니다."></td>
@@ -85,24 +88,16 @@
 		</tr>
 		<tr>
 			<?php
-				if (!isset($_SESSION['id'])) {
-					for ($i = 0; $i < 3; $i++) {
+				for ($i = $slideindex; $i < $slideindex + 3; $i++) {
 						echo "<td>";
 						echo "<form>";
-						echo "<input type = 'submit' class = 'reserve' value = '비회원 예매'/>";
+						echo "<input type = 'hidden' name = 'reserve_movie' value = '$i'/>";
+						if (!isset($_SESSION['id']))
+							echo "<input type = 'submit' class = 'reserve' value = '비회원 예매'/>";
+						else
+							echo "<input type = 'submit' class = 'reserve' value = '예매'/>";
 						echo "</form>";
 						echo "</td>";
-					}
-				}
-
-				else {
-					for ($i = 0; $i < 3; $i++) {
-						echo "<td>";
-						echo "<form>";
-						echo "<input type = 'submit' class = 'reserve' value = '예매'/>";
-						echo "</form>";
-						echo "</td>";
-					}
 				}
 			?>
 		</tr>
