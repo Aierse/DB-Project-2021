@@ -89,15 +89,15 @@
 		<tr>
 			<?php
 				for ($i = $slideindex; $i < $slideindex + 3; $i++) {
-						echo "<td>";
-						echo "<form>";
-						echo "<input type = 'hidden' name = 'reserve_movie' value = '$i'/>";
-						if (!isset($_SESSION['id']))
-							echo "<input type = 'submit' class = 'reserve' value = '비회원 예매'/>";
-						else
-							echo "<input type = 'submit' class = 'reserve' value = '예매'/>";
-						echo "</form>";
-						echo "</td>";
+					echo "<td>";
+					echo "<form>";
+					echo "<input type = 'hidden' name = 'reserve_movie' value = '$i'/>";
+					if (!isset($_SESSION['id']))
+						echo "<input type = 'submit' class = 'reserve' value = '비회원 예매'/>";
+					else
+						echo "<input type = 'submit' class = 'reserve' value = '예매'/>";
+					echo "</form>";
+					echo "</td>";
 				}
 			?>
 		</tr>
