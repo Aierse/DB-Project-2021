@@ -1,7 +1,7 @@
 <?php
 	function get_connect($user_id = "dbuser174414", $user_pw = "ce174414") {
 		$dbsid = "( DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP) (HOST = localhost) (PORT = 1521) ) ) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = orcl) ) ) ";
-		$connect = oci_connect($user_id, $user_pw, $dbsid);
+		$connect = @oci_connect($user_id, $user_pw, $dbsid, 'AL32UTF8');
 
 		return $connect;
 	}
