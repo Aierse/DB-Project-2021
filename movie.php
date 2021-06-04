@@ -85,14 +85,13 @@
 
 			$connect = get_connect();
 
-			$first = $slideindex;
-			$middle = $slideindex + 1;
-			$last = $slideindex + 2;
+			$first = (int)$slideindex;
+			$last = (int)$slideindex + 2;
 
 			$sql = "SELECT movie_id, movie_name, image FROM (
 			SELECT * FROM Movie ORDER BY movie_id ASC
 			)
-			WHERE rownum = $first OR rownum = $middle OR rownum = $last";
+			WHERE rownum BETWEEN $first AND $last";
 			$stid = oci_parse($connect, $sql);
 
 			if (oci_execute($stid)) {
