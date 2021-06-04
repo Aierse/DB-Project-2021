@@ -64,9 +64,9 @@
 	if (!isset($_GET['slideindex']))
 		$slideindex = 1;
 	else
-		$slideindex = $_GET['slideindex'];
+		$slideindex = (int)$_GET['slideindex'];
 
-	if ($slideindex < 1) 
+	if ($slideindex < 1)
 		$slideindex = 1;
 ?>
 <div id = "movie">
@@ -83,29 +83,31 @@
 		<?php
 			include "stdlib.php";
 
-				$connect = get_connect();
+			$connect = get_connect();
 
-				$sql = "SELECT movie_id, movie_name, image FROM (
-				SELECT * FROM Movie ORDER BY movie_id ASC
-				)
-				WHERE rownum BETWEEN :first AND :last";
-				$stid = oci_parse($connect, $sql);
+			$last = $slideindex + 2;
+			$first = $slideindex;
 
-				$last = $slideindex + 2;
-				$first = $slideindex;
-				oci_bind_by_name($stid, ":first", $first);
-				oci_bind_by_name($stid, ":last", $last);
+			$sql = "SELECT movie_id, movie_name, image FROM (
+			SELECT * FROM Movie ORDER BY movie_id ASC
+			)
+			WHERE rownum BETWEEN $first AND $last";
+			$stid = oci_parse($connect, $sql);
 
-				if (oci_execute($stid)) {
-					$i = 0;
-					while (($row = oci_fetch_array($stid, OCI_NUM)) != false) {
-						$movie_list[$i] = $row;
-						$i += 1;
-					}
+			
+			oci_bind_by_name($stid, ":first", $first);
+			oci_bind_by_name($stid, ":last", $last);
+
+			if (oci_execute($stid)) {
+				$i = 0;
+				while (($row = oci_fetch_array($stid, OCI_NUM)) != false) {
+					$movie_list[$i] = $row;
+					$i += 1;
 				}
+			}
 
-				oci_free_statement($stid);
-				oci_close($connect);
+			oci_free_statement($stid);
+			oci_close($connect);
 		?>
 		<tr class = "name_area">
 			<?php
