@@ -64,7 +64,7 @@
 	if (!isset($_GET['slideindex']))
 		$slideindex = 1;
 	else
-		$slideindex = (int)$_GET['slideindex'];
+		$slideindex = $_GET['slideindex'];
 
 	if ($slideindex < 1)
 		$slideindex = 1;
@@ -85,13 +85,13 @@
 
 			$connect = get_connect();
 
-			$first = (int)$slideindex;
-			$last = (int)$slideindex + 2;
+			$first = $slideindex;
+			$last = $slideindex + 2;
 
 			$sql = "SELECT movie_id, movie_name, image FROM (
 			SELECT * FROM Movie ORDER BY movie_id ASC
 			)
-			WHERE rownum BETWEEN $first AND $last";
+			WHERE movie_id BETWEEN $first AND $last";
 			$stid = oci_parse($connect, $sql);
 
 			if (oci_execute($stid)) {
