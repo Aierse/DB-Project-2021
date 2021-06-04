@@ -43,7 +43,7 @@
 		</p>
 		<nav id = "account_menu">
 			<li>
-				<ul>내 정보</ul>
+				<ul><a href = "my_info.php">내 정보</a></ul>
 				<ul>예매 확인</ul>
 			</li>
 		</nav>
