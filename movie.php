@@ -85,10 +85,10 @@
 
 				$connect = get_connect();
 
-				$sql = "SELECT m.movie_id, m.movie_name, m.image FROM (
-				SELECT rownum, movie_id, movie_name, image FROM Movie ORDER BY movie_id DESC
-				) m 
-				WHERE m.rownum BETWEEN :start AND :end";
+				$sql = "SELECT movie_id, movie_name, image FROM (
+				SELECT * FROM Movie ORDER BY movie_id DESC
+				)
+				WHERE rownum BETWEEN :start AND :end";
 				$stid = oci_parse($connect, $sql);
 
 				$end = $next - 1;
@@ -98,7 +98,7 @@
 				if (oci_execute($stid)) {
 					$i = 0;
 					while (($row = oci_fetch_array($stid, OCI_NUM)) != false) {
-						$movie_list[i] = $row;
+						$movie_list[$i] = $row;
 						$i += 1;
 					}
 				}
