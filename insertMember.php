@@ -1,10 +1,14 @@
 <?php
 	include "stdlib.php";
 
+	function num2date($num){
+		return $num<10 ? "0".$num : (string)$num;
+	}
+
 	$conn = get_connect();
 	
-	$sql = "INSERT INTO CUSTOMER(customer_id,user_id,user_pw,birth,name,phone_number)
-				VALUES(CUSTOMER_SEQ.NEXTVAL,:user_id,:user_pw,:birth,:name,:phone_number)";
+	$sql = "INSERT INTO CUSTOMER(user_id,user_pw,birth,name,phone_number)
+				VALUES(:user_id,:user_pw,:birth,:name,:phone_number)";
 		
 	$stid = oci_parse($conn,$sql);
 	
@@ -12,8 +16,8 @@
 	$user_pw = check_input($_POST['pw']);
 	
 	$year = check_input($_POST['year']);
-	$month = check_input($_POST['month']);
-	$day = check_input($_POST['day']);
+	$month = num2date(check_input($_POST['month']));
+	$day = num2date(check_input($_POST['day']));
 	
 	$name = check_input($_POST['name']);
 	
@@ -21,6 +25,7 @@
 	$middleNum = check_input($_POST['middleNum']);
 	$lastNum = check_input($_POST['lastNum']);
 	
+
 	$birth = (string)$year.$month.$day;
 	$phone_number = (string)$firstNum.$middleNum.$lastNum;
 	
@@ -33,11 +38,10 @@
 	$result = query_with_disconnect($conn, $stid, $sql);
 	
 	if ($result) {
-		echo "alert('실패')";
-		echo "<script>location.href='index.php'</script>";
+		echo "<script>alert('성공');</script>";
 	}
 	else {
-		echo "alert('실패')";
-		echo "<script>location.href='index.php'</script>";
+		echo "<script>alert('실패');</script>";
 	}
 ?>
+<meta http-equiv="refresh" content="0;url=index.php" />
