@@ -91,8 +91,9 @@
 				WHERE m.rownum BETWEEN :start AND :end";
 				$stid = oci_parse($connect, $sql);
 
+				$end = $next - 1;
 				oci_bind_by_name($stid, ":start", $slideindex);
-				oci_bind_by_name($stid, ":end", $next - 1);
+				oci_bind_by_name($stid, ":end", $end);
 
 				if (oci_execute($stid)) {
 					$i = 0;
