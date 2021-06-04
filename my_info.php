@@ -1,3 +1,7 @@
+function show_user_pw($user_id){
+	
+}
+
 <style>
 	table{
 		text-align : center;
@@ -16,7 +20,10 @@
 	</td>
 	<tr>
 		<td>ID</td>
-		<td></td>
+		<td>
+			$user_id = $_SESSION['id'];
+			echo "$user_id";
+		</td>
 	</tr>
 	<tr>
 		<td>P.W</td>
