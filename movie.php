@@ -66,14 +66,14 @@
 	else
 		$slideindex = $_GET['slideindex'];
 
-	if ($slideindex <= 0) 
+	if ($slideindex <= 1) 
 		$slideindex = 1;
 ?>
 <div id = "movie">
 	<?php
-		$next = $slideindex + 3;
+		$next = $slideindex + 1;
 		if ($slideindex > 1) {
-			$prev = $slideindex - 3;
+			$prev = $slideindex - 1;
 			echo "<a class='prev' href = 'index.php?slideindex=$prev'>&#10094;</a>";
 		}
 
@@ -91,8 +91,9 @@
 				WHERE rownum BETWEEN :first AND :last";
 				$stid = oci_parse($connect, $sql);
 
-				$end = $next - 1;
-				oci_bind_by_name($stid, ":first", $slideindex);
+				$end = $slideindex * 3;
+				$first = $end - 2;
+				oci_bind_by_name($stid, ":first", $fist);
 				oci_bind_by_name($stid, ":last", $end);
 
 				if (oci_execute($stid)) {
