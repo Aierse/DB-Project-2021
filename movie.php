@@ -86,7 +86,7 @@
 				$connect = get_connect();
 
 				$sql = "SELECT movie_id, movie_name, image FROM (
-				SELECT * FROM Movie ORDER BY movie_id DESC
+				SELECT * FROM Movie ORDER BY movie_id ASC
 				)
 				WHERE rownum BETWEEN :first AND :last";
 				$stid = oci_parse($connect, $sql);
