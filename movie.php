@@ -88,8 +88,11 @@
 				$sql = "SELECT m.movie_id, m.movie_name, m.image FROM (
 				SELECT rownum, movie_id, movie_name, image FROM Movie ORDER BY movie_id DESC
 				) m 
-				WHERE m.rownum BETWEEN $slideindex AND $next";
+				WHERE m.rownum BETWEEN :start AND :end";
 				$stid = oci_parse($connect, $sql);
+
+				oci_bind_by_name($stid, ":start", $slideindex);
+				oci_bind_by_name($stid, ":end", $next - 1);
 
 				if (oci_execute($stid)) {
 					$i = 0;
