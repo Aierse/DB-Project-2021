@@ -65,33 +65,63 @@
 		$slideindex = 1;
 	else
 		$slideindex = $_GET['slideindex'];
+
+	if ($slideindex <= 0) 
+		$slideindex = 1;
 ?>
 <div id = "movie">
 	<?php
-		$prev = $slideindex - 3;
 		$next = $slideindex + 3;
-		echo "<a class='prev' href = 'index.php?slideindex=$prev'>&#10094;</a>";
+		if ($slideindex > 1) {
+			$prev = $slideindex - 3;
+			echo "<a class='prev' href = 'index.php?slideindex=$prev'>&#10094;</a>";
+		}
+
 		echo "<a class='next' href = 'index.php?slideindex=$next'>&#10095;</a>";
 	?>
 	<table border>
+		<?php
+			include "stdlib.php";
+
+				$connect = get_connect();
+
+				$sql = "SELECT m.movie_id, m.movie_name, m.image FROM (
+				SELECT rownum, movie_id, movie_name, image FROM Movie ORDER BY movie_id DESC
+				) m 
+				WHERE m.rownum BETWEEN $slideindex AND $next";
+				$stid = oci_parse($connect, $sql);
+
+				if (oci_execute($stid)) {
+					$i = 0;
+					while (($row = oci_fetch_array($stid, OCI_NUM)) != false) {
+						$movie_list[i] = $row;
+						$i += 1;
+					}
+				}
+
+				oci_free_statement($stid);
+				oci_close($connect);
+		?>
 		<tr class = "name_area">
 			<?php
-				for ($i = $slideindex; $i < $slideindex + 3; $i++) {
-					echo "<td><h1>테스트$i</h1></td>";
+				foreach ($movie_list as $item) {
+					echo "<td><h1>$item[1]</h1></td>";
 				}
 			?>
 		</tr>
 		<tr class = "img_area">
-			<td><img src="image/testimage.png" alt="이미지 불러오기에 실패했습니다."></td>
-			<td><img src="image/testimage.png" alt="이미지 불러오기에 실패했습니다."></td>
-			<td><img src="image/testimage.png" alt="이미지 불러오기에 실패했습니다."></td>
+			<?php
+				foreach ($movie_list as $item) {
+					echo "<td><img src='$item[2]' alt='이미지 불러오기에 실패했습니다.'></td>";
+				}
+			?>
 		</tr>
 		<tr>
 			<?php
-				for ($i = $slideindex; $i < $slideindex + 3; $i++) {
+				foreach ($movie_list as $item) {
 					echo "<td>";
-					echo "<form>";
-					echo "<input type = 'hidden' name = 'reserve_movie' value = '$i'/>";
+					echo "<form method = 'POST' action = 'movie_information.php'>";
+					echo "<input type = 'hidden' name = 'movie_reserve' value = '$item[0]'/>";
 					if (!isset($_SESSION['id']))
 						echo "<input type = 'submit' class = 'reserve' value = '비회원 예매'/>";
 					else

@@ -6,6 +6,7 @@
 		return $connect;
 	}
 	// 쿼리 실행과 해제를 담당
+	// 결과가 단 하나인 경우에만 사용 가능
 	function query_with_disconnect($connect, $stid, $sql) {
 		$type = explode(' ',$sql)[0];
 
@@ -96,7 +97,7 @@
 		if (!isset($connect))
 			$connect = get_connect();
 
-		$sql = "SELECT reserve_id, phone_number FROM Reserve WHERE reserve_id = :reserve_id AND phone_number = :user_phone_number"
+		$sql = "SELECT reserve_id, phone_number FROM Reserve WHERE reserve_id = :reserve_id AND phone_number = :user_phone_number";
 		$stid = oci_parse($connect, $sql);
 
 		oci_bind_by_name($stid, ":reserve_id", $reserve_id);
