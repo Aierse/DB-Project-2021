@@ -21,7 +21,7 @@
 	$middleNum = check_input($_POST['middleNum']);
 	$lastNum = check_input($_POST['lastNum']);
 	
-	$birth = (string)$year."-".$month."-".$day;
+	$birth = (string)$year.$month.$day;
 	$phone_number = (string)$firstNum.$middleNum.$lastNum;
 	
 	oci_bind_by_name($stid, ":user_id", $user_id);
