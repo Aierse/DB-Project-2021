@@ -34,7 +34,7 @@
 	<?php
 		session_start();
 	?>
-	<div id = "head" onclick = "location.href='index.php'">
-		<h1><a href = "#">킹갓 영화관</a></h1>
+	<div id = "head">
+		<h1><a href = "index.php">킹갓 영화관</a></h1>
 	</div>
 </header>
