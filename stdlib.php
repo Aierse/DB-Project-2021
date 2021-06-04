@@ -47,10 +47,8 @@
 		if (!isset($connect))
 			$connect = get_connect();
 
-		$sql = "SELECT user_id FROM Customer WHERE user_id = :user_id";
+		$sql = "SELECT user_id FROM Customer WHERE user_id = $user_id";
 		$stid = oci_parse($connect, $sql);
-
-		oci_bind_by_name($stid, ":user_id", $user_id);
 
 		return query_with_disconnect($connect, $stid, $sql);
 	}
@@ -59,10 +57,8 @@
 		if (!isset($connect))
 			$connect = get_connect();
 
-		$sql = "SELECT user_id FROM Customer WHERE phone_number = :user_phone_number";
+		$sql = "SELECT user_id FROM Customer WHERE phone_number = $user_phone_number";
 		$stid = oci_parse($connect, $sql);
-
-		oci_bind_by_name($stid, ":user_phone_number", $user_phone_number);
 
 		return query_with_disconnect($connect, $stid, $sql);
 	}
@@ -71,11 +67,8 @@
 		if (!isset($connect))
 			$connect = get_connect();
 
-		$sql = "UPDATE Customer SET user_pw WHERE user_id = :user_id AND user_phone_number = :user_phone_number";
+		$sql = "UPDATE Customer SET user_pw WHERE user_id = $user_id AND user_phone_number = $user_phone_number";
 		$stid = oci_parse($connect, $sql);
-
-		oci_bind_by_name($stid, ":user_id", $user_id);
-		oci_bind_by_name($stid, ":user_phone_number", $user_phone_number);
 
 		return query_with_disconnect($connect, $stid, $sql);
 	}
@@ -84,11 +77,8 @@
 		if (!isset($connect))
 			$connect = get_connect();
 
-		$sql = "SELECT user_id, name FROM Customer WHERE user_id = :user_id AND user_pw = :user_pw";
+		$sql = "SELECT user_id, name FROM Customer WHERE user_id = $user_id AND user_pw = $user_pw";
 		$stid = oci_parse($connect, $sql);
-
-		oci_bind_by_name($stid, ":user_id", $user_id);
-		oci_bind_by_name($stid, ":user_pw", $user_pw);
 
 		return query_with_disconnect($connect, $stid, $sql);
 	}
@@ -97,11 +87,8 @@
 		if (!isset($connect))
 			$connect = get_connect();
 
-		$sql = "SELECT reserve_id, phone_number FROM Reserve WHERE reserve_id = :reserve_id AND phone_number = :user_phone_number";
+		$sql = "SELECT reserve_id, phone_number FROM Reserve WHERE reserve_id = $reserve_id AND phone_number = $user_phone_number";
 		$stid = oci_parse($connect, $sql);
-
-		oci_bind_by_name($stid, ":reserve_id", $reserve_id);
-		oci_bind_by_name($stid, ":user_phone_number", $user_phone_number);
 
 		return query_with_disconnect($connect, $stid, $sql);
 	}
