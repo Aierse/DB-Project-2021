@@ -23,20 +23,9 @@
 
 	$conn = get_connect();
 	$sql = "INSERT INTO CUSTOMER(user_id,user_pw,birth,name,phone_number)
-				VALUES(:user_id, :user_pw, :birth, :name, :phone_number)";
+				VALUES('$user_id', '$user_pw', '$birth', '$name', '$phone_number')";
 
 	$stid = oci_parse($conn,$sql);
-
-	oci_bind_by_name($stid, ":user_id", $user_id);
-	oci_bind_by_name($stid, ":user_pw", $user_pw);
-	oci_bind_by_name($stid, ":birth", $birth);
-	oci_bind_by_name($stid, ":name", $name);
-	oci_bind_by_name($stid, ":phone_number", $phone_number);
-
-	$result = oci_execute($stid);
-
-	oci_free_statement($stid);
-	oci_close($conn);
 	$result = query_with_disconnect($conn, $stid, $sql);
 
 	if ($result) {
