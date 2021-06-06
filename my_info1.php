@@ -12,53 +12,67 @@
 	}
 ?>
 <style>
-	table{
-		text-align : center;
+	#info {
+		margin-top : 125px;
+		margin-left : 350px;
 	}
-	
+
+	#info > table {
+		text-align : center;
+		margin-top : 19.016px;
+		font-size : 35px;
+	}
+
+	td:nth-child(2n+1) {
+		background-color : #E71A0F;
+		color : white;
+	}
+
 </style>
-<table border>
-	<tr>
-		<td>이름</td>
-		<td width = "200">
-			<?php
-				$name = $_SESSION['name'];
-				echo "$name";
-			?>
+<div id = "info">
+	<table border ="1">
+		<tr height = "75">
+			<td width = "200" >이름</td>
+			<td width = "400">
+				<?php
+					$name = $_SESSION['name'];
+					echo "$name";
+				?>
+			</td>
 		</td>
-	</td>
-	<tr>
-		<td>ID</td>
-		<td>
-			<?php
-				$user_id = $_SESSION['id'];
-				echo "$user_id";
-			?>
+		<tr height = "75">
+			<td>ID</td>
+			<td>
+				<?php
+					$user_id = $_SESSION['id'];
+					echo "$user_id";
+				?>
+			</td>
+		</tr>
+		<tr height = "75">
+			<td>P.W</td>
+			<td>
+				<?php
+					$result=show_user_info($_SESSION['id']);
+					echo "$result[0]";
+				?>
+			</td>
+		</tr>
+		<tr height = "75">
+			<td>생년월일</td>
+			<td>
+				<?php
+					echo substr($result[1], 0, 4)."년".substr($result[1], 4, 2)."월".substr($result[1], 6, 2)."일";
+				?>
+			</td>
 		</td>
-	</tr>
-	<tr>
-		<td>P.W</td>
-		<td>
-			<?php
-				$result=show_user_info($_SESSION['id']);
-				echo "$result[0]";
-			?>
-		</td>
-	</tr>
-	<tr>
-		<td>생년월일</td>
-		<td>
-			<?php
-				echo "$result[1]";
-			?>
-		</td>
-	</td>
-	<tr>
-		<td>휴대폰 번호</td>
-		<td>
-			<?php
-				echo "$result[2]";
-			?>
-		</td>
-	</tr>
-</table>
+		<tr height = "75">
+			<td>휴대폰 번호</td>
+			<td>
+				<?php
+					echo substr($result[2], 0, 3)."-".substr($result[2], 3,4)."-".substr($result[2], 7,4);
+				?>
+			</td>
+		</tr>
+	</table>
+</div>
