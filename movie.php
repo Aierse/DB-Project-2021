@@ -1,10 +1,4 @@
 <style>
-	#movie {
-		display : inline-block;
-		margin-top : 19.016px;
-		margin-bottom : 19.016px;
-	}
-
 	.prev, .next {
 		cursor : pointer;
 		position : absolute;
@@ -31,11 +25,24 @@
 		color : white;
 	}
 
+	#movie {
+		display : inline-block;
+		margin-top : 19.016px;
+		margin-bottom : 19.016px;
+	}
+
+	#movie > table {
+		table-layout : fixed;
+	}
+
 	.name_area h1 {
 		padding-top : 19.016px;
 		padding-bottom : 19.016px;
 		padding-left : 16px;
 		letter-spacing : 16px;
+		overflow:hidden;
+		white-space : nowrap;
+		text-overflow: ellipsis;
 	}
 
 	.img_area img {
@@ -61,6 +68,14 @@
 	}
 </style>
 <?php
+	include "stdlib.php";
+	
+	$connect = get_connect();
+	$sql = "SELECT COUNT(*) FROM Movie";
+	$stid = oci_parse($connect, $sql);
+	oci_execute($stid);
+	$count = oci_fetch_array($stid, OCI_NUM)[0];
+
 	if (!isset($_GET['slideindex']))
 		$slideindex = 1;
 	else
@@ -68,7 +83,11 @@
 
 	if ($slideindex < 1)
 		$slideindex = 1;
+	
+	if ($slideindex > $count) 
+		$slideindex = $count - 2;
 ?>
+<meta charset="UTF-8">
 <div id = "movie">
 	<?php
 		$next = $slideindex + 3;
@@ -77,12 +96,11 @@
 			echo "<a class='prev' href = 'index.php?slideindex=$prev'>&#10094;</a>";
 		}
 
-		echo "<a class='next' href = 'index.php?slideindex=$next'>&#10095;</a>";
+		if ($slideindex + 2 < $count)
+			echo "<a class='next' href = 'index.php?slideindex=$next'>&#10095;</a>";
 	?>
 	<table border>
 		<?php
-			include "stdlib.php";
-
 			$connect = get_connect();
 
 			$first = $slideindex;
