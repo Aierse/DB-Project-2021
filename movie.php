@@ -90,7 +90,6 @@
 	if ($slideindex > $count) 
 		$slideindex = $count - 2;
 ?>
-<meta charset="UTF-8">
 <div id = "movie">
 	<?php
 		$next = $slideindex + 3;
