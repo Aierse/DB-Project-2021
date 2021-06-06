@@ -7,7 +7,8 @@
 	// 쿼리 실행과 해제를 담당
 	// 결과가 단 하나인 경우에만 사용 가능
 	function query_with_disconnect($connect, $stid, $sql) {
-		$type = explode(' ',$sql)[0];
+		$type = explode(' ', $sql)[0];
+		
 		if ($type == "SELECT") {
 			if (oci_execute($stid)) {
 				$row = oci_fetch_array($stid, OCI_NUM);
