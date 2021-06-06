@@ -43,16 +43,22 @@
 		overflow : hidden;
 		text-overflow: ellipsis;
 	}
-
+	
+	.name_area > td {
+		padding : 13px 0px;
+	}
 	.name_area a {
-		font-size : 50px;
+		font-size : 24px;
+		padding-left : 12px;
+		letter-spacing : 12px;
 	}
 
 	.img_area img {
 		width : 350px;
-		height : 416.814px;
+		height : 426.814px;
 		padding : 25px;
 		vertical-align : middle;
+		cursor : pointer;
 	}
 
 	.reserve {
@@ -68,6 +74,7 @@
 
 		letter-spacing : 30px;
 		padding-left : 30px;
+		cursor : pointer;
 	}
 </style>
 <?php
@@ -76,8 +83,8 @@
 	$connect = get_connect();
 	$sql = "SELECT COUNT(*) FROM Movie";
 	$stid = oci_parse($connect, $sql);
-	oci_execute($stid);
-	$count = oci_fetch_array($stid, OCI_NUM)[0];
+	
+	$count = query_with_disconnect($connect, $stid, $sql)[0];
 
 	if (!isset($_GET['slideindex']))
 		$slideindex = 1;
