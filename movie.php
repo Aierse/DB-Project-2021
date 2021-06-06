@@ -43,14 +43,23 @@
 		overflow : hidden;
 		text-overflow: ellipsis;
 	}
-	
+
 	.name_area > td {
 		padding : 13px 0px;
 	}
+
 	.name_area a {
 		font-size : 24px;
 		padding-left : 12px;
 		letter-spacing : 12px;
+	}
+
+	.name_area a:link {
+		color : black;
+	}
+
+	.name_area a:visited {
+		color : black;
 	}
 
 	.img_area img {
@@ -135,7 +144,7 @@
 		<tr class = "name_area">
 			<?php
 				foreach ($movie_list as $item) {
-					echo "<td><a href = 'movie_information.php'>$item[1]</a></td>";
+					echo "<td><a href = 'movie_information.php'><b>$item[1]</a></td>";
 				}
 			?>
 		</tr>

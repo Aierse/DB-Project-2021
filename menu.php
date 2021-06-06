@@ -18,6 +18,7 @@
 		padding-left : 16px;
 		letter-spacing : 16px;
 		color : #e71a0f;
+		cursor : pointer;
 	}
 
 	.menu > li:hover {
