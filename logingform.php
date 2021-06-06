@@ -26,6 +26,7 @@
 		font-size : 16px;
 		letter-spacing : 16px;
 		color : white;
+		cursor : pointer;
 	}
 
 	#account_menu > li {

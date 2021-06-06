@@ -41,7 +41,7 @@
 			?>
 			<div>
 				<?php
-					include "movie.php";
+					include "movie_information_page.php";
 				?>
 			</div>
 		</section>

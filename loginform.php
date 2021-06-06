@@ -28,6 +28,7 @@
 		line-height : 45px;
 		text-align : center;
 		margin-bottom : 5%;
+		cursor : pointer;
 	}
 /* 회원 버튼 클릭시 */
 	.login > input:nth-of-type(1):checked ~ .buttons > label:nth-of-type(1) {
@@ -75,6 +76,7 @@
 		padding-left : 16px;
 		letter-spacing : 16px;
 		color : white;
+		cursor : pointer;
 	}
 /*회원가입 , ID 창 */
 	.manage {

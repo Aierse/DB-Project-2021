@@ -32,7 +32,6 @@
 	}
 
 	#movie > table {
-		width : 1216px;
 		table-layout : fixed;
 	}
 
@@ -44,15 +43,30 @@
 		text-overflow: ellipsis;
 	}
 
+	.name_area > td {
+		padding : 13px 0px;
+	}
+
 	.name_area a {
-		font-size : 50px;
+		font-size : 24px;
+		padding-left : 12px;
+		letter-spacing : 12px;
+	}
+
+	.name_area a:link {
+		color : black;
+	}
+
+	.name_area a:visited {
+		color : black;
 	}
 
 	.img_area img {
 		width : 350px;
-		height : 416.814px;
+		height : 426.814px;
 		padding : 25px;
 		vertical-align : middle;
+		cursor : pointer;
 	}
 
 	.reserve {
@@ -68,6 +82,7 @@
 
 		letter-spacing : 30px;
 		padding-left : 30px;
+		cursor : pointer;
 	}
 </style>
 <?php
@@ -76,8 +91,8 @@
 	$connect = get_connect();
 	$sql = "SELECT COUNT(*) FROM Movie";
 	$stid = oci_parse($connect, $sql);
-	oci_execute($stid);
-	$count = oci_fetch_array($stid, OCI_NUM)[0];
+	
+	$count = query_with_disconnect($connect, $stid, $sql)[0];
 
 	if (!isset($_GET['slideindex']))
 		$slideindex = 1;
@@ -128,14 +143,14 @@
 		<tr class = "name_area">
 			<?php
 				foreach ($movie_list as $item) {
-					echo "<td><a href = 'movie_information.php'>$item[1]</a></td>";
+					echo "<td><a href = 'movie_information.php?movie_id=$item[0]'><b>$item[1]</a></td>";
 				}
 			?>
 		</tr>
 		<tr class = "img_area">
 			<?php
 				foreach ($movie_list as $item) {
-					echo "<td><img src='$item[2]' alt='이미지 불러오기에 실패했습니다.' onclick = \"location.href = 'movie_information.php'\"></td>";
+					echo "<td><img src='$item[2]' alt='이미지 불러오기에 실패했습니다.' onclick = \"location.href = 'movie_information.php?movie_id=$item[0]'\"></td>";
 				}
 			?>
 		</tr>
