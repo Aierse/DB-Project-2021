@@ -32,17 +32,20 @@
 	}
 
 	#movie > table {
+		width : 1216px;
 		table-layout : fixed;
 	}
 
-	.name_area h1 {
-		padding-top : 19.016px;
-		padding-bottom : 19.016px;
-		padding-left : 16px;
-		letter-spacing : 16px;
-		overflow:hidden;
+	#movie table tr td {
+		width : 384px;
+
 		white-space : nowrap;
+		overflow : hidden;
 		text-overflow: ellipsis;
+	}
+
+	.name_area a {
+		font-size : 50px;
 	}
 
 	.img_area img {
@@ -99,7 +102,7 @@
 		if ($slideindex + 2 < $count)
 			echo "<a class='next' href = 'index.php?slideindex=$next'>&#10095;</a>";
 	?>
-	<table border>
+	<table border style="table-layout: fixed">
 		<?php
 			$connect = get_connect();
 
@@ -126,14 +129,14 @@
 		<tr class = "name_area">
 			<?php
 				foreach ($movie_list as $item) {
-					echo "<td><h1>$item[1]</h1></td>";
+					echo "<td><a href = 'movie_information.php'>$item[1]</a></td>";
 				}
 			?>
 		</tr>
 		<tr class = "img_area">
 			<?php
 				foreach ($movie_list as $item) {
-					echo "<td><img src='$item[2]' alt='이미지 불러오기에 실패했습니다.'></td>";
+					echo "<td><img src='$item[2]' alt='이미지 불러오기에 실패했습니다.' onclick = \"location.href = 'movie_information.php'\"></td>";
 				}
 			?>
 		</tr>
@@ -141,7 +144,7 @@
 			<?php
 				foreach ($movie_list as $item) {
 					echo "<td>";
-					echo "<form method = 'POST' action = 'movie_information.php'>";
+					echo "<form method = 'POST' action = 'reserve.php'>";
 					echo "<input type = 'hidden' name = 'movie_reserve' value = '$item[0]'/>";
 					if (!isset($_SESSION['id']))
 						echo "<input type = 'submit' class = 'reserve' value = '비회원 예매'/>";
