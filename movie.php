@@ -1,3 +1,23 @@
+<?php
+	include "stdlib.php";
+	
+	$connect = get_connect();
+	$sql = "SELECT COUNT(*) FROM Movie";
+	$stid = oci_parse($connect, $sql);
+	
+	$count = query_with_disconnect($connect, $stid, $sql)[0];
+
+	if (!isset($_GET['slideindex']))
+		$slideindex = 1;
+	else
+		$slideindex = $_GET['slideindex'];
+
+	if ($slideindex < 1)
+		$slideindex = 1;
+	
+	if ($slideindex > $count) 
+		$slideindex = $count - 2;
+?>
 <style>
 	.prev, .next {
 		cursor : pointer;
@@ -32,6 +52,7 @@
 	}
 
 	#movie > table {
+		width : <?php echo $count - $slideindex + 1 >= 3 ? 1215 : 1215 * ($count - $slideindex + 1) / 3?>px;
 		table-layout : fixed;
 	}
 
@@ -85,26 +106,6 @@
 		cursor : pointer;
 	}
 </style>
-<?php
-	include "stdlib.php";
-	
-	$connect = get_connect();
-	$sql = "SELECT COUNT(*) FROM Movie";
-	$stid = oci_parse($connect, $sql);
-	
-	$count = query_with_disconnect($connect, $stid, $sql)[0];
-
-	if (!isset($_GET['slideindex']))
-		$slideindex = 1;
-	else
-		$slideindex = $_GET['slideindex'];
-
-	if ($slideindex < 1)
-		$slideindex = 1;
-	
-	if ($slideindex > $count) 
-		$slideindex = $count - 2;
-?>
 <div id = "movie">
 	<?php
 		$next = $slideindex + 3;
