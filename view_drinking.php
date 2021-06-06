@@ -75,4 +75,7 @@
 		<td>2000원</td>
 		<td>2000원</td>
 	</tr>
+	<tr>
+		<td colspan="7">사이즈up : +500원</td>
+	</tr>
 </table>

@@ -62,8 +62,12 @@
 	</td>
 	<tr align=center>
 		<td>3000원</td>
-		<td>3000원</td>
-		<td>3000원</td>
-		<td>3000원</td>
-	</td>
+		<td>3500원</td>
+		<td>3500원</td>
+		<td>3500원</td>
+	</tr>
+	<tr>
+		<td colspan="4">사이즈 up : +1000원</td>
+	</tr>
+
 </table>
