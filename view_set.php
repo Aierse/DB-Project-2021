@@ -45,21 +45,24 @@
 </div>
 <table border id="menu_tb">
 	<tr>
-		<td colspan="">SET</td>
+		<td colspan="3">SET</td>
 	</tr>
 	<tr>
-		<td><img src="image/음식사진/.jpg" width=200 height=200></td>
-		<td><img src="image/음식사진/.jpg" width=200 height=200></td>
-		<td><img src="image/음식사진/.jpg" width=200 height=200></td>
+		<td><img src="image/음식사진/나쵸+팝콘+음료2.PNG" width=200 height=200></td>
+		<td><img src="image/음식사진/팝콘+핫도그+음료2.PNG" width=200 height=200></td>
+		<td><img src="image/음식사진/팝콘+음료2.PNG" width=200 height=200></td>
 	</tr>
 	<tr align=center>
-		<td>팝콘+음료 (선택)</td>
-		<td>팝콘+핫도그+음료 (선택)</td>
-		<td>팝콘(라지)+ 음료(중자 2개)</td>
+		<td>나쵸+팝콘(라지)+음료 2개(선택)</td>
+		<td>팝콘+핫도그+음료 2개(선택)</td>
+		<td>팝콘(라지)+ 음료 2개(선택)</td>
 	</tr>
 	<tr align=center>
-		<td>4500~5000원</td>
-		<td>6500~7000원</td>
-		<td>7500원</td>
+		<td>10000~10500원</td>
+		<td>9000~9500원</td>
+		<td>7000~7500원</td>
+	</tr>
+	<tr >
+		<td colspan="3">음료 사이즈up은 별도 (1000원 추가)</td>
 	</tr>
 </table>
