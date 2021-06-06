@@ -24,7 +24,7 @@
 	$conn = get_connect();
 	$sql = "INSERT INTO CUSTOMER(user_id,user_pw,birth,name,phone_number)
 				VALUES(:user_id, :user_pw, :birth, :name, :phone_number)";
-		
+
 	$stid = oci_parse($conn,$sql);
 
 	oci_bind_by_name($stid, ":user_id", $user_id);
@@ -37,6 +37,7 @@
 
 	oci_free_statement($stid);
 	oci_close($conn);
+	$result = query_with_disconnect($conn, $stid, $sql);
 
 	if ($result) {
 		echo "<script>alert('성공');</script>";
