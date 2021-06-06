@@ -32,7 +32,6 @@
 	}
 
 	#movie > table {
-		width : 1216px;
 		table-layout : fixed;
 	}
 
@@ -144,14 +143,14 @@
 		<tr class = "name_area">
 			<?php
 				foreach ($movie_list as $item) {
-					echo "<td><a href = 'movie_information.php'><b>$item[1]</a></td>";
+					echo "<td><a href = 'movie_information.php?movie_id=$item[0]'><b>$item[1]</a></td>";
 				}
 			?>
 		</tr>
 		<tr class = "img_area">
 			<?php
 				foreach ($movie_list as $item) {
-					echo "<td><img src='$item[2]' alt='이미지 불러오기에 실패했습니다.' onclick = \"location.href = 'movie_information.php'\"></td>";
+					echo "<td><img src='$item[2]' alt='이미지 불러오기에 실패했습니다.' onclick = \"location.href = 'movie_information.php?movie_id=$item[0]'\"></td>";
 				}
 			?>
 		</tr>
