@@ -1,45 +1,44 @@
-	<title>ID/PW 찾기 페이지</title>
-	<style>
-	<!--글꼴-->
-		h,fieldset{
-			font-family: 고딕;
-			font-size:1em;
-			border-radius: 5px;
+<style>
+	#id_pw_find{
+		margin-top : 150px;
+	}
+	fieldset{
+		font-family: 고딕;
+		font-size:1em;
+		border-radius: 5px;
 		}
-		table{
-			border-spacing:15px;
-			text-align:center;
-			}
-
-		fieldset{
-			text-align:center;
-			margin-left:auto; 
-			margin-right:auto;
-			width:300px;
+	table{
+		border-spacing:15px;
+		text-align:center;
 		}
-	</style>
-	<script>
+	fieldset{
+		text-align:center;
+		margin-left:auto; 
+		margin-right:auto;
+		width:300px;
+	}
+</style>
+<script>
 	function findid_checkvalue(){
-				if(!document.find_id.phonenumber.value){
-					alert("전화번호를 입력하세요.");
-					return false;
-				}
+		if(!document.find_id.phonenumber.value){
+			alert("전화번호를 입력하세요.");
+			return false;
+		}
 	}
 	function findpw_checkvalue(){
-				if(!document.find_pw.id.value){
-					alert("아이디를 입력하세요.");
-					return false;
-				}
-				if(!document.find_pw.phonenumber.value){
-					alert("전화번호를 입력하세요.");
-					return false;
-				}
+		if(!document.find_pw.id.value){
+			alert("아이디를 입력하세요.");
+			return false;
+		}
+		if(!document.find_pw.phonenumber.value){
+			alert("전화번호를 입력하세요.");
+			return false;
+		}
 	}
-	</script>
+</script>
 
-
-	<h1>ID/PW 찾기</h1>
-	<form name="find_id" method="post" action="find_id.php" onsubmit="return findid_checkvalue()">
+<div id = "id_pw_find">
+	<form name="find_id" method="post" action="find_id.php" onsubmit="return findid_checkvalue()" target ="_blank">
 		<fieldset>
 			<legend>ID 찾기</legend>
 			<table>
@@ -68,4 +67,4 @@
 			<input type="submit" name= "find_pw" value= "PW 찾기">
 		</fieldset>
 	</form>
-
+</div>
