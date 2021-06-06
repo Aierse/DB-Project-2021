@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 	<head>
-		<meta charset="utf-8"/>
+		<<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 			<title>회원가입 페이지</title>
 		<style>
 			h, td, tr, input,button, textarea, select, FORM{
