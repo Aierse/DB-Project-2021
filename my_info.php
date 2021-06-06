@@ -1,40 +1,52 @@
-function show_user_pw($user_id){
-	
-}
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>영화 예매 사이트</title>
+		<style>
+			* {
+				font-family : "맑은 고딕";
+				margin : 0;
+				padding : 0;
+				text-align : center;
+			}
 
-<style>
-	table{
-		text-align : center;
-	}
-	
-</style>
-<table border>
-	<tr>
-		<td>이름</td>
-		<td>
+			a {
+				text-decoration : none;
+			}
+
+			body > section {
+				width : 100%;
+				display : block;
+			}
+
+			body > section > div {
+				position : absolute;
+				background-color : #fdfcf0;
+				padding : 10 10px;
+				left : 380.594px;
+				width : 1522.41px;
+				height : 655.891px;
+				float : right;
+			}
+		</style>
+	</head>
+	<body>
+		<?php
+			include "header.php";
+		?>
+		<section>
 			<?php
-				$name = $_SESSION['name'];
-				echo "$name";
+				include "aside.php";
 			?>
-		</td>
-	</td>
-	<tr>
-		<td>ID</td>
-		<td>
-			$user_id = $_SESSION['id'];
-			echo "$user_id";
-		</td>
-	</tr>
-	<tr>
-		<td>P.W</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>생년월일</td>
-		<td></td>
-	</td>
-	<tr>
-		<td>휴대폰 번호</td>
-		<td></td>
-	</tr>
-</table>
+			<div>
+				<?php
+					include "my_info1.php";
+				?>
+			</div>
+		</section>
+		<?php
+			include "footer.php";
+		?>
+	</body>
+</html>
