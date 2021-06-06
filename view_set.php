@@ -43,31 +43,26 @@
 		<li><a class="set" href="view_set_menu.php">SET</a></li>
 	</ul>
 </div>
-
 <table border id="menu_tb">
 	<tr>
-		<td colspan="4">POPCORN</td>
+		<td colspan="3">SET</td>
 	</tr>
 	<tr>
-		<td><img src="image/음식사진/오리지널.jpg" width=200 height=200></td>
-		<td><img src="image/음식사진/치즈.jpg" width=200 height=200></td>
-		<td><img src="image/음식사진/카라멜.jpg" width=200 height=200></td>
-		<td><img src="image/음식사진/어니언.jpg" width=200 height=200></td>
+		<td><img src="image/음식사진/나쵸+팝콘+음료2.PNG" width=200 height=200></td>
+		<td><img src="image/음식사진/팝콘+핫도그+음료2.PNG" width=200 height=200></td>
+		<td><img src="image/음식사진/팝콘+음료2.PNG" width=200 height=200></td>
 	</tr>
 	<tr align=center>
-		<td>오리지널 팝콘</td>
-		<td>치즈 팝콘</td>
-		<td>카라멜 팝콘</td>
-		<td>어니언 팝콘</td>
-	</td>
+		<td>나쵸+팝콘(라지)+음료 2개(선택)</td>
+		<td>팝콘+핫도그+음료 2개(선택)</td>
+		<td>팝콘(라지)+ 음료 2개(선택)</td>
+	</tr>
 	<tr align=center>
-		<td>3000원</td>
-		<td>3500원</td>
-		<td>3500원</td>
-		<td>3500원</td>
+		<td>10000~10500원</td>
+		<td>9000~9500원</td>
+		<td>7000~7500원</td>
 	</tr>
-	<tr>
-		<td colspan="4">사이즈 up : +1000원</td>
+	<tr >
+		<td colspan="3">음료 사이즈up은 별도 (1000원 추가)</td>
 	</tr>
-
 </table>
