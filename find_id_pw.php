@@ -51,7 +51,7 @@
 		</fieldset>
 	</form>
 	<br>
-	<form name="find_pw" method="post" action="" onsubmit="return findpw_checkvalue()">
+	<form name="find_pw" method="post" action="find_pw.php" onsubmit="return findpw_checkvalue()" target ="_blank">
 		<fieldset>
 			<legend>PW 찾기</legend>
 			<table>

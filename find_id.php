@@ -19,27 +19,21 @@
 		$stid = oci_parse($connect, $sql);
 
 		oci_execute($stid);
-
 		
-
 		$i = 0;
-		while($row = oci_fetch_array($stid,OCI_NUM)) {
-				$id_list[$i] = $row[0];
-				$i += 1;
-			}
+		while($row = oci_fetch_array($stid,OCI_NUM)) != false {
+			$id_list[$i] = $row[0];
+			$i += 1;
+		}
 
-			echo "회원님의 ID 입니다. <br>";
+		echo "회원님의 ID 입니다. <br>";
 
 		foreach($id_list as $id){
-				echo "ID : ".$id."<br>";
+			echo "ID : ".$id."<br>";
 		}
 		
-
 		oci_free_statement($stid);
 		oci_close($connect);
 	?>
 </body>
 </html>
-
-
-
