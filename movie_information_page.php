@@ -3,10 +3,7 @@
 
 	$movie_id = check_input($_GET['movie_id']);
 
-	$connect = get_connect();
-	$sql = "SELECT * FROM Movie WHERE movie_id = '$movie_id'";
-
-	$result = query_with_disconnect($connect, oci_parse($connect, $sql), $sql);
+	$result = get_movie($movie_id);
 ?>
 <style>
 	#information {

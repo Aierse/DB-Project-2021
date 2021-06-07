@@ -84,4 +84,14 @@
 
 		return query_with_disconnect($connect, $stid, $sql);
 	}
+
+	function get_movie($movie_id, $connect = null) {
+		if (!isset($connect))
+			$connect = get_connect();
+
+		$sql = "SELECT * FROM Movie WHERE movie_id = '$movie_id'";
+		$stid = oci_parse($connect, $sql);
+
+		return query_with_disconnect($connect, $stid, $sql);
+	}
 ?>
