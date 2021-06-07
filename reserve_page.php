@@ -24,7 +24,7 @@
 		if (!isset($connect))
 			$connect = get_connect();
 
-		$sql = "SELECT TO_CHAR(start_time, 'YYYYMMDDHH24MISS') FROM Screening WHERE movie_id = '$movie_id'";
+		$sql = "SELECT DISTINCT(TO_CHAR(start_time, 'YYYY-MM-DD')) FROM Screening WHERE movie_id = '$movie_id'";
 		$stid = oci_parse($connect, $sql);
 		oci_execute($stid);
 
@@ -46,7 +46,7 @@
 
 	$i = 0;
 	foreach ($date as $item) {
-		$day[$i++] = substr($item, 0, 8);
+		$day[$i++] = $item;
 	}
 ?>
 <style>
@@ -64,6 +64,7 @@
 	#reserve ul {
 		list-style-type : none;
 	}
+
 	.day_list {
 		width : 970px;
 		margin-left : 19.016px;
@@ -71,6 +72,7 @@
 		width : 100px;
 		height : 602px;
 		padding : 0 19.016px;
+		overflow : auto;
 	}
 
 	.day_list > h3 {
@@ -78,17 +80,36 @@
 		padding-bottom : 19.016px;
 		border-top : 2px solid #bebebe;
 		border-bottom : 2px solid #bebebe;
+		cursor : default;
 	}
 
-	.day_list > ul {
-		padding-top : 19.016px
+	.day_list input {
+		display : none;
 	}
 
-	.day_list > ul > li {
+	.time_buttons > label {
+		padding-top : 19.016px;
 		padding-bottom : 19.016px;
-		margin-bottom : 19.016px;
 		border-bottom : 1px solid #bebebe;
+		cursor : pointer;
+		display : block;
 	}
+
+	.day_list > input:nth-of-type(1):checked ~ .time_buttons > label:nth-of-type(1) {
+		background-color : #E71A0F;
+		color : white;
+		transition-duration: 1s;
+	}
+
+	<?php
+		for ($i = 1; $i <= count($day); $i++) {
+			echo ".day_list > input:nth-of-type($i):checked ~ .time_buttons > label:nth-of-type($i) {";
+			echo "background-color : #E71A0F;";
+			echo "color : white;";
+			echo "transition-duration: 1s;";
+			echo "}";
+		}
+	?>
 
 	.select_area {
 		width : 823px;
@@ -118,7 +139,7 @@
 	}
 
 	.room_list > ul > li > label {
-		cursor : pointer;
+		cursor : default;
 	}
 
 	.room_list > ul > li:nth-of-type(1) {
@@ -131,10 +152,18 @@
 		<img class = "movie_image" src=<?php echo "'$movie[7]'"?> alt='이미지 불러오기에 실패했습니다.'>
 		<div class = "day_list">
 			<h3>날짜 선택</h3>
-			<ul>
-				<li>테스트1
-				<li>테스트 2
-			</ul>
+			<?php
+				foreach ($day as $item) {
+					echo "<input id = '$item' type = 'radio' name = 'time' value = '$item'/>";
+				}
+			?>
+			<div class = 'time_buttons'>
+				<?php
+					foreach ($day as $item) {
+						echo "<label for = '$item'>$item</label>";
+					}
+				?>
+			</div>
 		</div>
 		<div class = "select_area">
 			<div class = "room_list">
