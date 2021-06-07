@@ -45,7 +45,7 @@
 		<nav id = "account_menu">
 			<li>
 				<ul><a href = "my_info.php">내 정보</a></ul>
-				<ul>예매 확인</ul>
+				<ul><a href = "check_reserve_page.php">예매 확인</a></ul>
 			</li>
 		</nav>
 	</div>
