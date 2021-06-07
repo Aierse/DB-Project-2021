@@ -38,7 +38,6 @@
 		
 		text-align : left;
 	}
-	
 
 	.information_list {
 		height : 59px;
