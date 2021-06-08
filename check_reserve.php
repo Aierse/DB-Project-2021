@@ -20,21 +20,10 @@
 			$reserve_list[$i++] = $row;
 		}
 
-		foreach($reserve_list as $item){
-			echo "<div class = cutting>";
-					echo "<div class = tradeMark>KING GOD</div>";
-					echo "<div class = ticket>";
-						echo "<div>movie:".$item[0]."</div>";
-						echo "<div><b>cost: ".$item[1]."</b></div>";
-						echo "<div><b>theater: ".$item[2]."</b></div>";
-							echo "<div><b>seat: ".$item[3]."-".$item[4]."</b></div>";
-						echo "<div><b>date:".$item[5]."</b></div>";
-					echo "</div>";
-			echo "</div>";
-			echo "<br>";
-		}
-	oci_free_statement($stid);
-	oci_close($connect);
+		oci_free_statement($stid);
+		oci_close($connect);
+
+		return $reserve_list;
 	}
 
 ?>
@@ -82,8 +71,37 @@
 </style>
 <div id = "show_reserved">
 	<h1>회원님의 예매 정보입니다.</h1>
-		<?php
-			show_reserve($user_id);
-		?>
+	<?php
+		foreach(show_reserve($user_id) as $item){
+			echo "<div class = cutting>";
+				echo "<div class = tradeMark>";
+					echo "KING GOD";
+				echo "</div>";
+				echo "<div class = ticket>";
+					echo "<div>";
+						echo "<div><b>movie:</b></div>";
+						echo "<div><b>$item[0]</b></div>";
+					echo "</div>";
+					echo "<div>";
+						echo "<div><b>cost:</b></div>"
+						echo "<div><b>$item[1]</b></div>";
+					echo "</div>";
+					echo "<div>";
+						echo "<div><b>theater:</b></div>";
+						echo "<div><b>$item[2]</b></div>";
+					echo "</div>";
+					echo "<div>";
+						echo "<div><b>seat:</b></div>";
+						echo "<div><b>$item[3]."-".$item[4]</b></div>";
+					echo "</div>";
+					echo "<div>";
+						echo "<div><b>date:</b></div>";
+						echo "<div><b>$item[5]</b>/<div>";
+					echo "</div>";
+				echo "</div>";
+			echo "</div>";
+		}
+	
+	?>
 </div>
 
