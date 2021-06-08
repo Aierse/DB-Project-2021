@@ -162,9 +162,9 @@
 		}
 	}
 </script>
-<form method = "POST" action = "seatselect.php" onsubmit="return checkValue()">
+<form method = "POST" action = "seatselect.php" onsubmit = "return checkValue()">
 	<div id = "reserve">
-		<img class = "movie_image" src=<?php echo "'$movie[7]'"?> alt='이미지 불러오기에 실패했습니다.'>
+		<img class = "movie_image" src = <?php echo "'$movie[7]'"?> alt = '이미지 불러오기에 실패했습니다.'>
 		<div class = "select_area">
 			<?php
 				foreach ($room_id as $key => $value) {
