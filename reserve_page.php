@@ -150,7 +150,7 @@
 		var chk_radio = document.getElementsByName('screening');
 		var sel_type = null;
 
-		for(var i=0;i<chk_radio.length;i++){
+		for (var i = 0; i < chk_radio.length ; i++){
 			if(chk_radio[i].checked == true){ 
 				sel_type = chk_radio[i].value;
 			}
