@@ -50,7 +50,9 @@
 	}
 	.tradeMark{
 		width : 100px;
-		height : 140px;
+		height : 100px;
+		padding : 20px 0px;
+		line-height : 50px;
 		font-size : 20px;
 		font-weight: 700;
 		border-right: 5px dashed;
@@ -58,15 +60,31 @@
 		color : #FDFCF0;
 	}
 	.ticket{
+		width : 300px;
 		height : 140px;
 	}
 	.ticket > div {
-		margin : 5px auto;
-		width : 200px;
-	}
-	.ticket > div > div{
-		width : 100px;
+		margin : 1.5px 0px;
+		height : 23px;
 		display : inline-block;
+		width : 300px;
+	}
+
+	.ticket > div > div {
+		display : inline-block;
+	}
+	.ticket > div > div:nth-of-type(1) {
+		overflow : hidden;
+		width : 80px;
+		margin-left : 5px;
+		text-align : left;
+	}
+
+	.ticket > div > div:nth-of-type(2) {
+		overflow : hidden;
+		width : 200px;
+		margin-right : 5px;
+		text-align : right;
 	}
 </style>
 <div id = "show_reserved">
@@ -79,29 +97,27 @@
 				echo "</div>";
 				echo "<div class = ticket>";
 					echo "<div>";
-						echo "<div><b>movie:</b></div>";
+						echo "<div><b>Title : </b></div>";
 						echo "<div><b>$item[0]</b></div>";
 					echo "</div>";
 					echo "<div>";
-						echo "<div><b>cost:</b></div>";
-						echo "<div><b>$item[1]</b></div>";
+						echo "<div><b>Cost:</b></div>";
+						echo "<div><b>$item[1]원</b></div>";
 					echo "</div>";
 					echo "<div>";
-						echo "<div><b>theater:</b></div>";
-						echo "<div><b>$item[2]</b></div>";
+						echo "<div><b>Theater:</b></div>";
+						echo "<div><b>상영관 $item[2]</b></div>";
 					echo "</div>";
 					echo "<div>";
-						echo "<div><b>seat:</b></div>";
-						echo "<div><b>$item[3]."-".$item[4]</b></div>";
+						echo "<div><b>Seat:</b></div>";
+						echo "<div><b>$item[3]"." 행".$item[4]." 열</b></div>";
 					echo "</div>";
 					echo "<div>";
-						echo "<div><b>date:</b></div>";
-						echo "<div><b>$item[5]</b>/<div>";
+						echo "<div><b>Date:</b></div>";
+						echo "<div><b>$item[5]</b></div>";
 					echo "</div>";
 				echo "</div>";
 			echo "</div>";
 		}
-	
 	?>
 </div>
-
