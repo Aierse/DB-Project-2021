@@ -1,17 +1,25 @@
 <?php
 	include "stdlib.php";
 
-	function get_room($movie_id, $connect = null) {
+	function get_screening($movie_id, $connect = null) {
 		if (!isset($connect))
 			$connect = get_connect();
 
-		$sql = "SELECT DISTINCT(room_id) FROM Screening WHERE movie_id = '$movie_id'";
+		$sql = "SELECT screening_id, room_id, TO_CHAR(start_time, 'MMDDHHMI')
+				FROM Screening
+				WHERE screening_id IN (
+					SELECT screening_id
+					FROM Screening 
+					WHERE movie_id = '$movie_id'
+				)
+				ORDER BY room_id, start_time";
+		
 		$stid = oci_parse($connect, $sql);
 		oci_execute($stid);
 
 		$i = 0;
 		while ($row = oci_fetch_array($stid)) {
-			$result[$i++] = $row[0];
+			$result[$i++] = $row;
 		}
 
 		oci_free_statement($stid);
@@ -41,12 +49,12 @@
 
 	$movie_id = check_input($_POST['movie_reserve']);
 	$movie = get_movie($movie_id);
-	$room = get_room($movie_id); // 1차원 배열
-	$date = get_date($movie_id);
+	$screening = get_screening($movie_id);
 
-	$i = 0;
-	foreach ($date as $item) {
-		$day[$i++] = $item;
+	for ($i = 0; $i < count($screening); $i++) {
+		$month = substr($screening[$i][2], 0, 2);
+		$screening[$i][2] = ($month[0] == '0' ? $month[1] : $month)."월".substr($screening[$i][2], 2, 2)."일 ".substr($screening[$i][2], 4, 2)."시".substr($screening[$i][2], 6, 2)."분";
+		$room_id[$screening[$i][1]][count($room_id[$screening[$i][1]])] = array($screening[$i][0], $screening[$i][2]);
 	}
 ?>
 <style>
@@ -57,6 +65,7 @@
 	}
 
 	#reserve > img {
+		margin-right : 19.016px;
 		width : 500px;
 		height : 602px;
 	}
@@ -65,121 +74,69 @@
 		list-style-type : none;
 	}
 
-	.day_list {
-		width : 970px;
-		margin-left : 19.016px;
-		border-left : 2px solid #bebebe;
-		width : 100px;
-		height : 602px;
-		padding : 0 19.016px;
-		overflow : auto;
-	}
-
-	.day_list > h3 {
-		padding-top : 19.016px;
-		padding-bottom : 19.016px;
-		border-top : 2px solid #bebebe;
-		border-bottom : 2px solid #bebebe;
-		cursor : default;
-	}
-
-	.day_list input {
-		display : none;
-	}
-
-	.time_buttons > label {
-		padding-top : 19.016px;
-		padding-bottom : 19.016px;
-		border-bottom : 1px solid #bebebe;
-		cursor : pointer;
-		display : block;
-	}
-
-	.day_list > input:nth-of-type(1):checked ~ .time_buttons > label:nth-of-type(1) {
-		background-color : #E71A0F;
-		color : white;
-		transition-duration: 1s;
-	}
-
-	<?php
-		for ($i = 1; $i <= count($day); $i++) {
-			echo ".day_list > input:nth-of-type($i):checked ~ .time_buttons > label:nth-of-type($i) {";
-			echo "background-color : #E71A0F;";
-			echo "color : white;";
-			echo "transition-duration: 1s;";
-			echo "}";
-		}
-	?>
-
 	.select_area {
-		width : 823px;
+		width : 963px;
 		height : 602px;
 		padding-left : 19.016px;
 		padding-right: 19.016px;
 		border-left : 2px solid #bebebe;
 	}
 
-	.room_list {
-		height : 63px;
-		border-top : 2px solid #bebebe;
-		border-bottom : 2px solid #bebebe;
-	}
-
-	/* 라디오 버튼 숨김 */
-	.room_list > input {
-		display : none;
-	}
-
-	.room_list > ul > li {
+	.select_area > div {
+		width : 963px;
 		letter-spacing : 3px;
-		border-left : 1px solid #bebebe;
-		margin-top : 19.016px;
-		padding : 0px 10px;
+		padding-bottom : 19.016px;
 		float : left;
 	}
 
-	.room_list > ul > li > label {
-		cursor : default;
+	.select_area > div > h3 {
+		padding-top : 19.016px;
+		padding-bottom : 19.016px;
+		color : white;
+		background-color : #e71a0f;
 	}
 
-	.room_list > ul > li:nth-of-type(1) {
-		padding-left : 0;
-		border : 0;
+	.select_area > div > ul {
+		width : 963px;
+		letter-spacing : 3px;
+		margin : 19.016 auto;
+	}
+
+	.select_area > div > ul > li {
+		float : left;
+		padding : 10px 70px;
+		cursor : pointer;
+	}
+
+	.select_area > div > ul > li > b {
+		width : 180px;
+	}
+
+	.select_area > div > ul > li:hover {
+		color : white;
+		background-color : #e71a0f;
+		transition-duration: 1s;
 	}
 </style>
 <form>
 	<div id = "reserve">
 		<img class = "movie_image" src=<?php echo "'$movie[7]'"?> alt='이미지 불러오기에 실패했습니다.'>
-		<div class = "day_list">
-			<h3>날짜 선택</h3>
+		<form>
+		<div class = "select_area">
 			<?php
-				foreach ($day as $item) {
-					echo "<input id = '$item' type = 'radio' name = 'time' value = '$item'/>";
+				foreach ($room_id as $key => $value) {
+					echo "<div>";
+					echo "<h3>상영관 $key</h3>";
+					echo "<ul>";
+					foreach ($value as $item) {
+						echo "<input type = 'hidden' value = $item[0]/>";
+						echo "<li><b>$item[1]</b></li>";
+					}
+					echo "</ul>";
+					echo "</div>";
 				}
 			?>
-			<div class = 'time_buttons'>
-				<?php
-					foreach ($day as $item) {
-						echo "<label for = '$item'>$item</label>";
-					}
-				?>
-			</div>
 		</div>
-		<div class = "select_area">
-			<div class = "room_list">
-				<?php
-					for ($i = 0; $i < 5; $i++) {
-						echo "<input id = '$i' type = 'radio' name = 'room' value = '$i'/>";
-					}
-				?>
-				<ul>
-					<?php
-						foreach ($room as $num) {
-							echo "<li><label for = '$num'><h3>상영관 $num</h3></label></li>";
-						}
-					?>
-				</ul>
-			</div>
-		</div>
+		</form>
 	</div>
 </form>
