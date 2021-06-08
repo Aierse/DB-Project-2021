@@ -80,12 +80,28 @@
 		padding-left : 19.016px;
 		padding-right: 19.016px;
 		border-left : 2px solid #bebebe;
+		position : relative;
+		overflow : auto;
+	}
+
+	.select_area > input {
+		outline : none;
+		border : 0;
+		color : white;
+		background-color : #e71a0f;
+		font-size : 20px;
+		width : 240px;
+		height : 60px;
+		position : absolute;
+		right : 0;
+		bottom : 0;
+		margin-right : 19.016px;
+		cursor : pointer;
 	}
 
 	.select_area > div {
 		width : 963px;
 		letter-spacing : 3px;
-		padding-bottom : 19.016px;
 		float : left;
 	}
 
@@ -102,20 +118,32 @@
 		margin : 19.016 auto;
 	}
 
+	.select_area > div > ul > input {
+		display : none;
+	}
+
 	.select_area > div > ul > li {
 		float : left;
-		padding : 10px 70px;
-		cursor : pointer;
-	}
-
-	.select_area > div > ul > li > b {
 		width : 180px;
+		margin : 0px 70.5px;
+	}
+	.select_area > div > ul > li > label {
+		width : 180px;
+		font-size : 16px;
+		padding : 20px 12px;
+		cursor : pointer;
+		float : left;
 	}
 
-	.select_area > div > ul > li:hover {
+	.select_area > div > ul > li > label:hover {
 		color : white;
 		background-color : #e71a0f;
-		transition-duration: 1s;
+		transition-duration: 0.5s;
+	}
+
+	.select_area > div > input:nth-of-type(1):checked ~ .select_area > div > ul > li:nth-of-type(1) {
+		color : white;
+		background-color : #e71a0f;
 	}
 </style>
 <form>
@@ -129,13 +157,15 @@
 					echo "<h3>상영관 $key</h3>";
 					echo "<ul>";
 					foreach ($value as $item) {
-						echo "<input type = 'hidden' value = $item[0]/>";
-						echo "<li><b>$item[1]</b></li>";
+						echo "<input id = '$item[0]' type = 'radio' name = 'screening' value = $item[0]/>";
+						echo "<li><label for = '$item[0]'><b>$item[1]</b></label></li>";
 					}
 					echo "</ul>";
 					echo "</div>";
 				}
 			?>
+
+			<input type = "submit" value = "좌석 선택"/>
 		</div>
 		</form>
 	</div>
