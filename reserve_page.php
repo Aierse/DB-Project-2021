@@ -52,10 +52,11 @@
 	$screening = get_screening($movie_id);
 
 	for ($i = 0; $i < count($screening); $i++) {
-		$month = substr($screening[$i][2], 0, 2);
-		$day = substr($screening[$i][2], 2, 2);
-		$minute = substr($screening[$i][2], 6, 2);
-		$screening[$i][2] = ($month[0] == '0' ? $month[1] : $month)."월 ".($day[0] =="0" ? $day[1] : $day)."일 ".substr($screening[$i][2], 4, 2)."시 ".($minute[0] == "0" ? : ($minute[1] == "0" ? "" : $minute[1]."분") : $minute."분");
+		$month = (int)substr($screening[$i][2], 0, 2);
+		$day = (int)substr($screening[$i][2], 2, 2);
+		$hour = (int)substr($screening[$i][2], 4, 2)
+		$minute = (int)substr($screening[$i][2], 6, 2);
+		$screening[$i][2] = $month."월 ".$day."일 ".$hour."시 ".($minute == 0 ? "" : $minute."분");
 		$room_id[$screening[$i][1]][count($room_id[$screening[$i][1]])] = array($screening[$i][0], $screening[$i][2]);
 	}
 ?>
