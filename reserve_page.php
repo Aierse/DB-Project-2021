@@ -53,7 +53,8 @@
 
 	for ($i = 0; $i < count($screening); $i++) {
 		$month = substr($screening[$i][2], 0, 2);
-		$screening[$i][2] = ($month[0] == '0' ? $month[1] : $month)."월".substr($screening[$i][2], 2, 2)."일 ".substr($screening[$i][2], 4, 2)."시".substr($screening[$i][2], 6, 2)."분";
+		$minute = substr($screening[$i][2], 6, 2);
+		$screening[$i][2] = ($month[0] == '0' ? $month[1] : $month)."월 ".substr($screening[$i][2], 2, 2)."일 ".substr($screening[$i][2], 4, 2)."시 ".($minute == "00" ? "" : $minute."분");
 		$room_id[$screening[$i][1]][count($room_id[$screening[$i][1]])] = array($screening[$i][0], $screening[$i][2]);
 	}
 ?>
@@ -80,63 +81,101 @@
 		padding-left : 19.016px;
 		padding-right: 19.016px;
 		border-left : 2px solid #bebebe;
-	}
-
-	.select_area > div {
-		width : 963px;
+		position : relative;
+		overflow : auto;
 		letter-spacing : 3px;
-		padding-bottom : 19.016px;
-		float : left;
 	}
 
-	.select_area > div > h3 {
+	.select_area > h3 {
+		float : left;
+		width : 963px;
 		padding-top : 19.016px;
 		padding-bottom : 19.016px;
 		color : white;
 		background-color : #e71a0f;
 	}
 
-	.select_area > div > ul {
-		width : 963px;
-		letter-spacing : 3px;
-		margin : 19.016 auto;
+	.rbutton {
+		display : none;
 	}
 
-	.select_area > div > ul > li {
-		float : left;
-		padding : 10px 70px;
+	.select_area > label {
+		-ms-user-select: none; 
+		-moz-user-select: -moz-none;
+		-khtml-user-select: none;
+		-webkit-user-select: none;
+		user-select: none;
+		display : inline-block;
+		width : 200px;
+		font-size : 16px;
+		padding : 20px 60.5px;
 		cursor : pointer;
+		float : left;
 	}
 
-	.select_area > div > ul > li > b {
-		width : 180px;
-	}
-
-	.select_area > div > ul > li:hover {
+	.select_area > label:hover {
 		color : white;
 		background-color : #e71a0f;
-		transition-duration: 1s;
+		transition-duration: 0.5s;
 	}
+
+	.select_area > input {
+		outline : none;
+		border : 0;
+		color : white;
+		background-color : #e71a0f;
+		font-size : 20px;
+		width : 240px;
+		height : 60px;
+		position : absolute;
+		right : 0;
+		bottom : 0;
+		margin-right : 19.016px;
+		cursor : pointer;
+	}
+	
+	<?php
+		for ($i = 0; $i < count($screening); $i++) {
+			$t = $i+1;
+			$item = $screening[$i][0];
+			echo ".select_area > input:nth-of-type($t):checked ~ #label$item {";
+			echo "color : white;";
+			echo "background-color : #e71a0f;";
+			echo "}";
+		}
+	?>
 </style>
-<form>
+<script>
+	function checkValue() {
+		var chk_radio = document.getElementsByName('screening');
+		var sel_type = null;
+
+		for(var i=0;i<chk_radio.length;i++){
+			if(chk_radio[i].checked == true){ 
+				sel_type = chk_radio[i].value;
+			}
+		}
+
+		if(sel_type == null){
+			alert("시간을 선택하세요."); 
+			return false;
+		}
+	}
+</script>
+<form method = "POST" action = "seatselect.php" onsubmit="return checkValue()">
 	<div id = "reserve">
 		<img class = "movie_image" src=<?php echo "'$movie[7]'"?> alt='이미지 불러오기에 실패했습니다.'>
-		<form>
 		<div class = "select_area">
 			<?php
 				foreach ($room_id as $key => $value) {
-					echo "<div>";
 					echo "<h3>상영관 $key</h3>";
-					echo "<ul>";
 					foreach ($value as $item) {
-						echo "<input type = 'hidden' value = $item[0]/>";
-						echo "<li><b>$item[1]</b></li>";
+						echo "<input id = '$item[0]' class = 'rbutton' type = 'radio' name = 'screening' value = '$item[0]'/>";
+						echo "<label id = 'label$item[0]' for = '$item[0]'><b>$item[1]</b></label>";
 					}
-					echo "</ul>";
-					echo "</div>";
 				}
 			?>
+			<input type = "submit" value = "좌석 선택"/>
 		</div>
-		</form>
 	</div>
 </form>
