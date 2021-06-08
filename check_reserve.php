@@ -83,7 +83,7 @@
 						echo "<div><b>$item[0]</b></div>";
 					echo "</div>";
 					echo "<div>";
-						echo "<div><b>cost:</b></div>"
+						echo "<div><b>cost:</b></div>";
 						echo "<div><b>$item[1]</b></div>";
 					echo "</div>";
 					echo "<div>";
