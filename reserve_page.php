@@ -52,9 +52,11 @@
 	$screening = get_screening($movie_id);
 
 	for ($i = 0; $i < count($screening); $i++) {
-		$month = substr($screening[$i][2], 0, 2);
-		$minute = substr($screening[$i][2], 6, 2);
-		$screening[$i][2] = ($month[0] == '0' ? $month[1] : $month)."월 ".substr($screening[$i][2], 2, 2)."일 ".substr($screening[$i][2], 4, 2)."시 ".($minute == "00" ? "" : $minute."분");
+		$month = (int)substr($screening[$i][2], 0, 2);
+		$day = (int)substr($screening[$i][2], 2, 2);
+		$hour = (int)substr($screening[$i][2], 4, 2)
+		$minute = (int)substr($screening[$i][2], 6, 2);
+		$screening[$i][2] = $month."월 ".$day."일 ".$hour."시 ".($minute == 0 ? "" : $minute."분");
 		$room_id[$screening[$i][1]][count($room_id[$screening[$i][1]])] = array($screening[$i][0], $screening[$i][2]);
 	}
 ?>
@@ -150,7 +152,7 @@
 		var chk_radio = document.getElementsByName('screening');
 		var sel_type = null;
 
-		for(var i=0;i<chk_radio.length;i++){
+		for (var i = 0; i < chk_radio.length ; i++){
 			if(chk_radio[i].checked == true){ 
 				sel_type = chk_radio[i].value;
 			}
@@ -162,9 +164,9 @@
 		}
 	}
 </script>
-<form method = "POST" action = "seatselect.php" onsubmit="return checkValue()">
+<form method = "POST" action = "seatselect.php" onsubmit = "return checkValue()">
 	<div id = "reserve">
-		<img class = "movie_image" src=<?php echo "'$movie[7]'"?> alt='이미지 불러오기에 실패했습니다.'>
+		<img class = "movie_image" src = <?php echo "'$movie[7]'"?> alt = '이미지 불러오기에 실패했습니다.'>
 		<div class = "select_area">
 			<?php
 				foreach ($room_id as $key => $value) {
