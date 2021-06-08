@@ -1,17 +1,25 @@
 <?php
 	include "stdlib.php";
 
-	function get_room($movie_id, $connect = null) {
+	function get_screening($movie_id, $connect = null) {
 		if (!isset($connect))
 			$connect = get_connect();
 
-		$sql = "SELECT DISTINCT(room_id) FROM Screening WHERE movie_id = '$movie_id'";
+		$sql = "SELECT screening_id, room_id, TO_CHAR(start_time, 'YYYY-MM-DD-HH-MI')
+				FROM Screening
+				WHERE screening_id IN (
+					SELECT screening_id
+					FROM Screening 
+					WHERE movie_id = '$movie_id'
+				)
+				ORDER BY room_id, start_time";
+		
 		$stid = oci_parse($connect, $sql);
 		oci_execute($stid);
 
 		$i = 0;
 		while ($row = oci_fetch_array($stid)) {
-			$result[$i++] = $row[0];
+			$result[$i++] = $row;
 		}
 
 		oci_free_statement($stid);
@@ -41,7 +49,8 @@
 
 	$movie_id = check_input($_POST['movie_reserve']);
 	$movie = get_movie($movie_id);
-	$room = get_room($movie_id); // 1차원 배열
+	$screening = get_screening($movie_id);
+
 	$date = get_date($movie_id);
 
 	$i = 0;
@@ -119,32 +128,34 @@
 		border-left : 2px solid #bebebe;
 	}
 
-	.room_list {
-		height : 63px;
-		border-top : 2px solid #bebebe;
-		border-bottom : 2px solid #bebebe;
-	}
-
-	/* 라디오 버튼 숨김 */
-	.room_list > input {
-		display : none;
-	}
-
-	.room_list > ul > li {
+	.select_area > div {
+		width : 823px;
 		letter-spacing : 3px;
-		border-left : 1px solid #bebebe;
-		margin-top : 19.016px;
-		padding : 0px 10px;
+		padding-top : 19.016px;
+		padding-bottom : 19.016px;
+		border-bottom : 2px solid #bebebe;
 		float : left;
 	}
 
-	.room_list > ul > li > label {
-		cursor : default;
+	.select_area > div:nth-of-type(1) {
+		border-top : 2px solid #bebebe;
 	}
 
-	.room_list > ul > li:nth-of-type(1) {
-		padding-left : 0;
-		border : 0;
+	.select_area > div > h3 {
+		padding-bottom : 19.016px;
+		border-bottom : 2px solid #bebebe;
+	}
+
+	.select_area > div > ul {
+		width : 823px;
+		letter-spacing : 3px;
+		margin : 19.016 auto;
+	}
+
+	.select_area > div > ul > li {
+		float : left;
+		padding-top : 19.016px;
+		padding-right : 10px;
 	}
 </style>
 <form>
@@ -165,21 +176,29 @@
 				?>
 			</div>
 		</div>
+		<form>
 		<div class = "select_area">
-			<div class = "room_list">
+			<div>
+				<h3>상영관 1</h3>
+				<ul>
 				<?php
-					for ($i = 0; $i < 5; $i++) {
-						echo "<input id = '$i' type = 'radio' name = 'room' value = '$i'/>";
+					for ($i = 0; $i < 10; $i++){
+						echo "<li>1960-01-01</li>";
 					}
 				?>
+				</ul>
+			</div>
+			<div>
+				<h3>상영관 2</h3>
 				<ul>
-					<?php
-						foreach ($room as $num) {
-							echo "<li><label for = '$num'><h3>상영관 $num</h3></label></li>";
-						}
-					?>
+				<?php
+					for ($i = 0; $i < 10; $i++){
+						echo "<li>1960-01-01</li>";
+					}
+				?>
 				</ul>
 			</div>
 		</div>
+		</form>
 	</div>
 </form>
