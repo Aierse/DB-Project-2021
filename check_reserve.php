@@ -7,7 +7,7 @@
 		if (!isset($connect))
 			$connect = get_connect();
 	
-		$sql = "SElECT m.movie_name, m.price, s.room_id, r.reserve_col, r.reserve_row, TO_CHAR(s.start_time, 'MM-DD-HH-MI')
+		$sql = "SElECT m.movie_name, m.price, s.room_id, r.reserve_col, r.reserve_row, TO_CHAR(s.start_time, 'MMDDHHMI')
 				FROM reserve r JOIN screening s ON r.screening_id = s.screening_id 
 				JOIN movie m ON m.movie_id = s.movie_id
 				WHERE r.user_id = '$user_id'";
@@ -88,7 +88,7 @@
 	}
 </style>
 <div id = "show_reserved">
-	<h1>회원님의 예매 정보입니다.</h1>
+	<h1><?php echo $_SESSION['name'];?>님의 예매 정보</h1>
 	<?php
 		foreach(show_reserve($user_id) as $item){
 			echo "<div class = cutting>";
@@ -97,24 +97,24 @@
 				echo "</div>";
 				echo "<div class = ticket>";
 					echo "<div>";
-						echo "<div><b>Title : </b></div>";
+						echo "<div><b>Title :</b></div>";
 						echo "<div><b>$item[0]</b></div>";
 					echo "</div>";
 					echo "<div>";
-						echo "<div><b>Cost:</b></div>";
+						echo "<div><b>Cost :</b></div>";
 						echo "<div><b>$item[1]원</b></div>";
 					echo "</div>";
 					echo "<div>";
-						echo "<div><b>Theater:</b></div>";
+						echo "<div><b>Theater :</b></div>";
 						echo "<div><b>상영관 $item[2]</b></div>";
 					echo "</div>";
 					echo "<div>";
-						echo "<div><b>Seat:</b></div>";
+						echo "<div><b>Seat :</b></div>";
 						echo "<div><b>$item[3]"." 행".$item[4]." 열</b></div>";
 					echo "</div>";
 					echo "<div>";
-						echo "<div><b>Date:</b></div>";
-						echo "<div><b>$item[5]</b></div>";
+						echo "<div><b>Date :</b></div>";
+						echo "<div><b>".(int)substr($item[5], 0, 2)."월".(int)substr($item[5], 2, 2)."일".substr($item[5], 4, 2)."시".substr($item[5], 6, 2)."분</b></div>";
 					echo "</div>";
 				echo "</div>";
 			echo "</div>";
