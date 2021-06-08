@@ -22,19 +22,21 @@
 
 		foreach($reserve_list as $item){
 			echo "<div class = cutting>";
-			echo "영화이름: ".$item[0]; 
-			echo "가격: ".$item[1]."원 ";
-			echo "<hr>상영관: ".$item[2]."번 ";
-			echo "좌석번호: ".$item[3]."-";
-			echo $item[4]." ";
-			echo "시작날짜 및 시간: ".$item[5];
+					echo "<div class = tradeMark>KING GOD</div>";
+					echo "<div class = ticket>";
+						echo "<div>movie:".$item[0]."</div>";
+						echo "<div><b>cost: ".$item[1]."</b></div>";
+						echo "<div><b>theater: ".$item[2]."</b></div>";
+							echo "<div><b>seat: ".$item[3]."-".$item[4]."</b></div>";
+						echo "<div><b>date:".$item[5]."</b></div>";
+					echo "</div>";
 			echo "</div>";
 			echo "<br>";
 		}
-
 	oci_free_statement($stid);
 	oci_close($connect);
 	}
+
 ?>
 <style>
 	#show_reserved{
@@ -44,21 +46,44 @@
 		width : 1500px;
 		height : 602px;
 		border-left : 1px solid black;
+		overflow : auto;
 	}
 	.cutting{
-		border-style: groove groove groove dashed;
+		border-style: groove;
 		border-color: #bcbcbc;
 		background-color : #FDFCF0;
-		width : 500px;
-		height : 50px;
-		margin-left : 19.016px;
+		width : 400px;
+		height : 140px;
+		margin : 0 auto;
+		margin-bottom : 19.016px;
+		font-size: 17px;
+		display : flex;
+	}
+	.tradeMark{
+		width : 100px;
+		height : 140px;
+		font-size : 20px;
+		font-weight: 700;
+		border-right: 5px dashed;
+		background-color : #E71A0F;
+		color : #FDFCF0;
+	}
+	.ticket{
+		height : 140px;
+	}
+	.ticket > div {
+		margin : 5px auto;
+		width : 200px;
+	}
+	.ticket > div > div{
+		width : 100px;
+		display : inline-block;
 	}
 </style>
 <div id = "show_reserved">
-	<div>
-		<h1>회원님의 예매 정보입니다.</h1>
+	<h1>회원님의 예매 정보입니다.</h1>
 		<?php
-		show_reserve($user_id);
+			show_reserve($user_id);
 		?>
-	</div>
 </div>
+
