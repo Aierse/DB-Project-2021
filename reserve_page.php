@@ -83,12 +83,7 @@
 		border-left : 2px solid #bebebe;
 		position : relative;
 		overflow : auto;
-	}
-
-	.select_area {
-		width : 963px;
 		letter-spacing : 3px;
-		float : left;
 	}
 
 	.select_area > h3 {
