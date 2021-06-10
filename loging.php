@@ -4,7 +4,7 @@
 
 	$type = $_POST['tab'];
 
-	if ($type = "member") {
+	if ($type == "member") {
 		$id = check_input($_POST['member_id']);
 		$pw = check_input($_POST['member_pw']);
 
@@ -22,12 +22,8 @@
 		$non_id = check_input($_POST['non_member_id']);
 		$non_phone_number = check_input($_POST['non_member_phone_number']);
 
-		echo $non_id;
-		echo $non_phone_number;
 
 		$row = login_non_member($non_id, $non_phone_number);
-
-		var_dump($row);
 
 		if ($row != NULL) {
 			$_SESSION['id'] = $row[0];
@@ -38,3 +34,4 @@
 		}
 	}
 ?>
+<meta http-equiv="refresh" content="0;url=index.php" />
