@@ -35,10 +35,26 @@
 			return false;
 		}
 	}
+	function show_result_id(){
+		var gsWin = window.open('about:blank','ID 찾기 결과','width=400,height=300');
+		var frm =document.find_id;
+		frm.action = 'find_id.php';
+		frm.target = "ID 찾기 결과";
+		frm.method ="post";
+		frm.submit();
+	}
+	function show_result_pw(){
+		var gsWin = window.open('about:blank','PW 찾기 결과','width=300,height=200');
+		var frm =document.find_pw;
+		frm.action = 'find_pw.php';
+		frm.target = "PW 찾기 결과";
+		frm.method ="post";
+		frm.submit();
+	}
 </script>
 
 <div id = "id_pw_find">
-	<form name="find_id" method="post" action="find_id.php" onsubmit="return findid_checkvalue()" target ="_blank">
+	<form name="find_id" method="post" action="/" onsubmit="return findid_checkvalue()">
 		<fieldset>
 			<legend>ID 찾기</legend>
 			<table>
@@ -47,11 +63,11 @@
 					<td><input type="text" name="phonenumber" maxlength="11" placeholder="전화번호( - 없이 작성)"></td>
 				</tr>
 			</table>
-			<input type="submit" name= "find_id"value= "ID 찾기" >
+			<input type="submit" onclick="show_result_id()" name= "find_id"value= "ID 찾기" >
 		</fieldset>
 	</form>
 	<br>
-	<form name="find_pw" method="post" action="find_pw.php" onsubmit="return findpw_checkvalue()" target ="_blank">
+	<form name="find_pw" method="post" action="/" onsubmit="return findpw_checkvalue()">
 		<fieldset>
 			<legend>PW 찾기</legend>
 			<table>
@@ -64,7 +80,7 @@
 					<td><input type="text" name="phonenumber" maxlength="11" placeholder="전화번호( - 없이 작성)"></td>
 				</tr>
 			</table>
-			<input type="submit" name= "find_pw" value= "PW 찾기">
+			<input type="submit"  onclick="show_result_pw()" name= "find_pw" value= "PW 찾기">
 		</fieldset>
 	</form>
 </div>
