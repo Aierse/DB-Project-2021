@@ -1,5 +1,5 @@
 <?php
-	include "stdlib.php";
+	include_once "stdlib.php";
 
 	function show_user_info($user_id, $connect = null){
 		if (!isset($connect))

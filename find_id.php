@@ -11,7 +11,7 @@
 
 <body>
 	<?php
-		include "stdlib.php";
+		include_once "stdlib.php";
 
 		$phone_number = check_input($_POST['phonenumber']);
 		

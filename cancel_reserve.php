@@ -1,5 +1,5 @@
 <?php
-	include "stdlib.php";
+	include_once "stdlib.php";
 
 	$reserve_id = check_input($_POST["reserve_id"]);
 	

@@ -1,5 +1,5 @@
 <?php
-	include "stdlib.php";
+	include_once "stdlib.php";
 	
 	$connect = get_connect();
 	$sql = "SELECT COUNT(*) FROM Movie";
@@ -161,7 +161,7 @@
 					echo "<td>";
 					echo "<form method = 'POST' action = 'reserve.php'>";
 					echo "<input type = 'hidden' name = 'movie_reserve' value = '$item[0]'/>";
-					if (!isset($_SESSION['id']))
+					if (is_member())
 						echo "<input type = 'submit' class = 'reserve' value = '비회원 예매'/>";
 					else
 						echo "<input type = 'submit' class = 'reserve' value = '예매'/>";

@@ -1,5 +1,5 @@
 <?php
-	include "stdlib.php";
+	include_once "stdlib.php";
 
 	function num2date($num){
 		return $num<10 ? "0".$num : (string)$num;

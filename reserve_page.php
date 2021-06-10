@@ -1,5 +1,5 @@
 <?php
-	include "stdlib.php";
+	include_once "stdlib.php";
 
 	function get_screening($movie_id, $connect = null) {
 		if (!isset($connect))

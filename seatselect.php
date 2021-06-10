@@ -182,7 +182,7 @@
 			</div>
 			<div class = 'selecting'>
 					<?php
-						if (!isset($_SESSION['id'])) {
+						if (is_member()) {
 							echo "<div>";
 							echo "<select class = 'phone' name='firstnum'>";
 							echo "<option> 010 </option>";

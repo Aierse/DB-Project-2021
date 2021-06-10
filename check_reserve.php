@@ -1,21 +1,20 @@
 <?php
 	
-	include "stdlib.php";
+	include_once "stdlib.php";
 	$user_id = $_SESSION['id'];
-	
 	function show_reserve($user_id,$connect = null){
 		if (!isset($connect))
 			$connect = get_connect();
 			
-		if (!isset($_SESSION['id'])){
-			$sql =  "SElECT m.movie_name, m.price, s.room_id, r.reserve_col, r.reserve_row, TO_CHAR(s.start_time, 'MMDDHHMI'),r.reserve_id
+		if (is_member()){
+			$sql = "SELECT m.movie_name, m.price, s.room_id, r.reserve_col, r.reserve_row, TO_CHAR(s.start_time, 'MMDDHHMI'),r.reserve_id
 					FROM reserve r JOIN screening s ON r.screening_id = s.screening_id 
 					JOIN movie m ON m.movie_id = s.movie_id
 					WHERE r.reserve_id = '$user_id'";
 		}
 
 		else{
-			$sql = "SElECT m.movie_name, m.price, s.room_id, r.reserve_col, r.reserve_row, TO_CHAR(s.start_time, 'MMDDHHMI'),r.reserve_id
+			$sql = "SELECT m.movie_name, m.price, s.room_id, r.reserve_col, r.reserve_row, TO_CHAR(s.start_time, 'MMDDHHMI'),r.reserve_id
 					FROM reserve r JOIN screening s ON r.screening_id = s.screening_id 
 					JOIN movie m ON m.movie_id = s.movie_id
 					WHERE r.user_id = '$user_id'";

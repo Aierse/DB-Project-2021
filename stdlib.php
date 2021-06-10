@@ -1,4 +1,6 @@
 <?php
+	session_start();
+
 	function get_connect($user_id = "dbuser174414", $user_pw = "ce174414") {
 		$connect = oci_connect($user_id, $user_pw, 'azza.gwangju.ac.kr/orcl', 'AL32UTF8');
 
@@ -28,6 +30,21 @@
 			return false;
 		}
 	}
+
+	function is_login() {
+		// 로그인 상태라면
+		if (isset($_SESSION['id'])) 
+			return true;
+		return false;
+	}
+
+	function is_member() {
+		if (is_login())
+			return "예약 번호 ".$_SESSION[0]."번" == $_SESSION[1] ? false : true;
+		else
+			return null;
+	}
+	
 	function check_input($data) {
 		$data = trim($data);
 		$data = stripslashes($data);

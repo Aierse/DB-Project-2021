@@ -7,7 +7,7 @@
 </head>
 <body>
 	<?php
-		include "stdlib.php";
+		include_once "stdlib.php";
 
 		$id = check_input($_GET['id']);
 

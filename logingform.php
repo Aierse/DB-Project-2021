@@ -38,13 +38,18 @@
 	<div>
 		<p>
 			<?php
+				include_once "stdlib.php";
 				$name = $_SESSION['name'];
 				echo "<strong>$name"." 님</strong>"
 			?>
 		</p>
 		<nav id = "account_menu">
 			<li>
-				<ul><a href = "my_info.php">내 정보</a></ul>
+				<?php
+					if (is_member()) {
+						echo "<ul><a href = 'my_info.php'>내 정보</a></ul>";
+					}
+				?>
 				<ul><a href = "check_reserve_page.php">예매 확인</a></ul>
 			</li>
 		</nav>
