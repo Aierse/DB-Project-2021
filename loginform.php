@@ -153,7 +153,7 @@
 	<input class = "logging" type = "submit" value = "로그인">
 	<div class = "manage">
 		<ul>
-			<li><a href = "register.php">회원 가입</a>
+			<li><a href = "register_page.php">회원 가입</a>
 			<li><a href = "find_id_pw_menu.php">ID / 비밀번호 찾기</a>
 		</ul>
 	</div>

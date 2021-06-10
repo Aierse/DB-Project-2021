@@ -7,7 +7,7 @@
 		if (!isset($connect))
 			$connect = get_connect();
 	
-		$sql = "SElECT m.movie_name, m.price, s.room_id, r.reserve_col, r.reserve_row, TO_CHAR(s.start_time, 'MMDDHHMI')
+		$sql = "SElECT m.movie_name, m.price, s.room_id, r.reserve_col, r.reserve_row, TO_CHAR(s.start_time, 'MMDDHHMI'),r.reserve_id
 				FROM reserve r JOIN screening s ON r.screening_id = s.screening_id 
 				JOIN movie m ON m.movie_id = s.movie_id
 				WHERE r.user_id = '$user_id'";
@@ -25,8 +25,20 @@
 
 		return $reserve_list;
 	}
-
 ?>
+<script>
+	function can_u_cancel(){
+
+	var con_test = confirm("선택하신 영화를 예매 취소하시겠습니까?.");
+
+	if(con_test == true){
+		return true;
+		}
+	else
+		return false;
+	}
+</script>
+
 <style>
 	#show_reserved{
 		margin : 0 auto;
@@ -41,13 +53,26 @@
 		border-style: groove;
 		border-color: #bcbcbc;
 		background-color : #FDFCF0;
-		width : 400px;
+		width : 500px;
 		height : 140px;
 		margin : 0 auto;
 		margin-bottom : 19.016px;
 		font-size: 17px;
 		display : flex;
 	}
+	.cancel{
+		width : 100px;
+		height : 140px;
+		display : inline-block;
+		outline : none;
+		border : 0;
+		border-left : 4px dashed;
+		font-size : 20px;
+		font-weight: 700;
+		background-color : #3232FF;
+		color : #FDFCF0;
+		cursor : pointer;
+		}
 	.tradeMark{
 		width : 100px;
 		height : 100px;
@@ -89,6 +114,10 @@
 	#show_reserved > h1 {
 		margin-bottom: 19.016px;
 	}
+	form{
+		margin : 0;
+		padding : 0;
+	}
 </style>
 <div id = "show_reserved">
 	<h1><?php echo $_SESSION['name'];?>님의 예매 정보</h1>
@@ -124,6 +153,10 @@
 							echo "<div><b>".(int)substr($item[5], 0, 2)."월".substr($item[5], 2, 2)."일".(int)substr($item[5], 4, 2)."시".substr($item[5], 6, 2)."분</b></div>";
 						echo "</div>";
 					echo "</div>";
+					echo "<form name='cancel' method='post' action = 'cancel_reserve.php' onsubmit = 'return can_u_cancel()'>";
+						echo "<button class = cancel >예매<br><br>취소</button>";
+						echo "<input type = 'hidden' value = $item[6] name = 'reserve_id'>";
+					echo "</form>";
 				echo "</div>";
 			}
 		}
