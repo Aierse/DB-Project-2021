@@ -182,7 +182,7 @@
 			</div>
 			<div class = 'selecting'>
 					<?php
-						if (is_member()) {
+						if (!is_member()) {
 							echo "<div>";
 							echo "<select class = 'phone' name='firstnum'>";
 							echo "<option> 010 </option>";

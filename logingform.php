@@ -40,7 +40,7 @@
 			<?php
 				include_once "stdlib.php";
 				$name = $_SESSION['name'];
-				echo "<strong>$name"." 님</strong>"
+				echo "<strong>$name"."님</strong>"
 			?>
 		</p>
 		<nav id = "account_menu">

@@ -95,7 +95,7 @@
 			<form method = 'POST' action = 'reserve.php'>
 				<input type = 'hidden' name = 'movie_reserve' value = '<?php echo $result[0]?>'/>
 				<?php
-					if (is_member())
+					if (!is_member())
 						echo "<input type = 'submit' class = 'reserve' value = '비회원 예매'/>";
 					else
 						echo "<input type = 'submit' class = 'reserve' value = '예매'/>";

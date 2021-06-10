@@ -39,8 +39,8 @@
 	}
 
 	function is_member() {
-		if (is_login())
-			return "예약 번호 ".$_SESSION[0]."번" == $_SESSION[1] ? false : true;
+		if (is_login()) 
+			return "예약 번호 ".$_SESSION['id']."번" == $_SESSION['name'] ? false : true;
 		else
 			return null;
 	}

@@ -6,7 +6,7 @@
 		if (!isset($connect))
 			$connect = get_connect();
 			
-		if (is_member()){
+		if (!is_member()){
 			$sql = "SELECT m.movie_name, m.price, s.room_id, r.reserve_col, r.reserve_row, TO_CHAR(s.start_time, 'MMDDHHMI'),r.reserve_id
 					FROM reserve r JOIN screening s ON r.screening_id = s.screening_id 
 					JOIN movie m ON m.movie_id = s.movie_id
