@@ -155,13 +155,32 @@
 			}
 		}
 
-		if(sel_type == null){
-			alert("시간을 선택하세요."); 
+		if (sel_type == null)
 			return false;
+
+		return true;
+	}
+	function seatselect(){
+		if (!checkValue()) {
+			alert("시간을 선택하세요.");
+			return;
 		}
+
+		var width = 880;
+		var height = 600;
+
+		var popupX = (window.screen.width / 2) - (width / 2);
+		var popupY= (window.screen.height / 2) - (height / 2);
+
+		var gsWin = window.open('about:blank', '좌석 선택', 'height=' + height  + ', width=' + width  + ', left='+ popupX + ', top='+ popupY);
+		var frm =document.select;
+		frm.action = 'seatselect.php';
+		frm.target = "좌석 선택";
+		frm.method ="post";
+		frm.submit();
 	}
 </script>
-<form method = "POST" action = "seatselect.php" onsubmit = "return checkValue()">
+<form method = "POST" name = "select" action = "/" onsubmit = "return checkValue()">
 	<div id = "reserve">
 		<img class = "movie_image" src = <?php echo "'$movie[7]'"?> alt = '이미지 불러오기에 실패했습니다.'>
 		<div class = "select_area">
@@ -174,7 +193,7 @@
 					}
 				}
 			?>
-			<input type = "submit" value = "좌석 선택"/>
+			<input type = "submit" value = "좌석 선택" onclick = "seatselect()"/>
 		</div>
 	</div>
 </form>
