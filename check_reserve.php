@@ -86,38 +86,46 @@
 		margin-right : 5px;
 		text-align : right;
 	}
+	#show_reserved > h1 {
+		margin-bottom: 19.016px;
+	}
 </style>
 <div id = "show_reserved">
 	<h1><?php echo $_SESSION['name'];?>님의 예매 정보</h1>
 	<?php
-		foreach(show_reserve($user_id) as $item){
-			echo "<div class = cutting>";
-				echo "<div class = tradeMark>";
-					echo "KING GOD";
+		if(show_reserve($user_id) == NULL){
+			echo "<h3>아직 영화 예매를 하지 않으셨습니다...</h3>";
+		}
+		else{
+			foreach(show_reserve($user_id) as $item){
+				echo "<div class = cutting>";
+					echo "<div class = tradeMark>";
+						echo "KING GOD";
+					echo "</div>";
+					echo "<div class = ticket>";
+						echo "<div>";
+							echo "<div><b>Title :</b></div>";
+							echo "<div><b>$item[0]</b></div>";
+						echo "</div>";
+						echo "<div>";
+							echo "<div><b>Cost :</b></div>";
+							echo "<div><b>$item[1]원</b></div>";
+						echo "</div>";
+						echo "<div>";
+							echo "<div><b>Theater :</b></div>";
+							echo "<div><b>상영관 $item[2]</b></div>";
+						echo "</div>";
+						echo "<div>";
+							echo "<div><b>Seat :</b></div>";
+							echo "<div><b>$item[3]"." 행".$item[4]." 열</b></div>";
+						echo "</div>";
+						echo "<div>";
+							echo "<div><b>Date :</b></div>";
+							echo "<div><b>".(int)substr($item[5], 0, 2)."월".substr($item[5], 2, 2)."일".(int)substr($item[5], 4, 2)."시".substr($item[5], 6, 2)."분</b></div>";
+						echo "</div>";
+					echo "</div>";
 				echo "</div>";
-				echo "<div class = ticket>";
-					echo "<div>";
-						echo "<div><b>Title :</b></div>";
-						echo "<div><b>$item[0]</b></div>";
-					echo "</div>";
-					echo "<div>";
-						echo "<div><b>Cost :</b></div>";
-						echo "<div><b>$item[1]원</b></div>";
-					echo "</div>";
-					echo "<div>";
-						echo "<div><b>Theater :</b></div>";
-						echo "<div><b>상영관 $item[2]</b></div>";
-					echo "</div>";
-					echo "<div>";
-						echo "<div><b>Seat :</b></div>";
-						echo "<div><b>$item[3]"." 행".$item[4]." 열</b></div>";
-					echo "</div>";
-					echo "<div>";
-						echo "<div><b>Date :</b></div>";
-						echo "<div><b>".(int)substr($item[5], 0, 2)."월".substr($item[5], 2, 2)."일".(int)substr($item[5], 4, 2)."시".substr($item[5], 6, 2)."분</b></div>";
-					echo "</div>";
-				echo "</div>";
-			echo "</div>";
+			}
 		}
 	?>
 </div>
