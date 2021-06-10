@@ -114,7 +114,7 @@
 					echo "</div>";
 					echo "<div>";
 						echo "<div><b>Date :</b></div>";
-						echo "<div><b>".(int)substr($item[5], 0, 2)."월".(int)substr($item[5], 2, 2)."일".substr($item[5], 4, 2)."시".substr($item[5], 6, 2)."분</b></div>";
+						echo "<div><b>".(int)substr($item[5], 0, 2)."월".substr($item[5], 2, 2)."일".(int)substr($item[5], 4, 2)."시".substr($item[5], 6, 2)."분</b></div>";
 					echo "</div>";
 				echo "</div>";
 			echo "</div>";
