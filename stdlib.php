@@ -79,7 +79,7 @@
 		if (!isset($connect))
 			$connect = get_connect();
 
-		$sql = "SELECT reserve_id, phone_number FROM Reserve WHERE reserve_id = '$reserve_id' AND phone_number = '$user_phone_number'";
+		$sql = "SELECT reserve_id FROM Reserve WHERE reserve_id = '$reserve_id' AND reserve_phone_number = '$user_phone_number'";
 		$stid = oci_parse($connect, $sql);
 
 		return query_with_disconnect($connect, $stid, $sql);
