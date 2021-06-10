@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8"/>
-	<meta name="viewport" content="width=980" />
-	<title>ID 찾기</title>
-	<style>
-	</style>
-</head>
+<style>
+	.find_id{
+		width: 400px;
+		height: 300px;
+	}
+	.find_id > table > th{
+		background-color : #E71A0F;
+		color : white;
+	}
+</style>
+
 <body>
 	<?php
 		include "stdlib.php";
@@ -20,20 +22,37 @@
 
 		oci_execute($stid);
 		
+		$b=1;
 		$i = 0;
-		while($row = oci_fetch_array($stid,OCI_NUM)) != false {
+		
+		while(($row = oci_fetch_array($stid,OCI_NUM)) != false ){
 			$id_list[$i] = $row[0];
 			$i += 1;
 		}
-
-		echo "회원님의 ID 입니다. <br>";
-
-		foreach($id_list as $id){
-			echo "ID : ".$id."<br>";
-		}
-		
 		oci_free_statement($stid);
 		oci_close($connect);
 	?>
+	<div class = "find_id">
+		<?php
+			
+			if ($id_list == NULL){
+				echo "입력하신 전화번호로 ID를 찾을 수 없습니다.";
+			}
+			else{
+				echo "<table border= ".$b.">";
+					echo "<thead>";
+						echo "<tr>";
+							echo "<th>회원님의 ID 입니다.</th>";
+						echo "</tr>";
+					echo "</thead>";
+					echo "<tbody>";
+				foreach($id_list as $id){
+					echo "<tr>";
+						echo "<td>".$id."</td>";
+					echo "</tr>";
+					}
+				echo "</table>";
+				}
+		?>
+	</div>
 </body>
-</html>

@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8"/>
-	<meta name="viewport" content="width=980" />
-	<title>pw 찾기</title>
-	<style>
-	</style>
-</head>
+<style>
+	.find_pw{
+		width: 300px;
+		height: 200px;
+		border: 1px groove black;
+	}
+</style>
 <body>
 	<?php
 		include "stdlib.php";
@@ -18,12 +16,18 @@
 		$sql = "SELECT user_pw FROM CUSTOMER WHERE user_id = '$id' AND phone_number = '$phone_number'";
 		$stid = oci_parse($connect, $sql);
 		
-
-		echo "$id 님의 패스워드입니다. <br>";
-
 		$pw = query_with_disconnect($connect, $stid, $sql)[0];
-
-		echo "$pw";
 	?>
+	<div class = "find_pw">
+		<?php
+			if($pw == NULL){
+			echo "입력하신 정보가 옳바르지 않습니다...";
+		}
+		else{
+			
+			echo "$id 님의 패스워드입니다. <br>";
+			echo "PassWard: ".$pw;
+		}
+		?>
+	</div
 </body>
-</html>
