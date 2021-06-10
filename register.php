@@ -1,6 +1,6 @@
 <style>
 	#title{
-		margin-top : 19.016px;
+		margin-top : 150px;
 	}
 	#title{
 		text-align: center;
