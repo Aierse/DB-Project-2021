@@ -126,7 +126,7 @@
 			}
 		?>
 		
-		var chkbox = document.getElementsByName('seat');
+		var chkbox = document.getElementsByName('seat[]');
 		for(var i = 0 ; i < chkbox.length ; i++) {
 			if(chkbox[i].checked) {
 				return true;
@@ -172,9 +172,9 @@
 						for($j = 1; $j <= 10; $j++) {
 							$value = $j."-".$i;
 							if ($reserved[$j][$i])
-								echo "<input id = '$value' type='checkbox' name='seat' value='$value' disabled = 'disabled'>";
+								echo "<input id = '$value' type='checkbox' name='seat[]' value='$value' disabled = 'disabled'>";
 							else
-								echo "<input id = '$value' type='checkbox' name='seat' value='$value'>";
+								echo "<input id = '$value' type='checkbox' name='seat[]' value='$value'>";
 							echo "<label id= 'label$value' class = 'seat' for = '$value'>$i - $j</label>";
 						}
 					}
