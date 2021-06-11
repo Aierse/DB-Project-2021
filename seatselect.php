@@ -167,7 +167,7 @@
 		<form name = 'myForm' action = 'reserving.php' method = "POST">
 			<div class = 'seat_area'>
 				<?php
-					echo "<input type = hidden value = $screening_id>";
+					echo "<input type = hidden name = 'screening' value = $screening_id>";
 					for ($i = 1; $i <= 5; $i++) {
 						for($j = 1; $j <= 10; $j++) {
 							$value = $j."-".$i;
