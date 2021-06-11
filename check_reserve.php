@@ -153,7 +153,7 @@
 						echo "</div>";
 						echo "<div>";
 							echo "<div><b>Seat :</b></div>";
-							echo "<div><b>$item[3]"." 행".$item[4]." 열</b></div>";
+							echo "<div><b>$item[4]"." 행".$item[3]." 열</b></div>";
 						echo "</div>";
 						echo "<div>";
 							echo "<div><b>Date :</b></div>";
