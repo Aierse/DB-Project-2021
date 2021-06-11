@@ -13,6 +13,7 @@
 		if ($row != NULL) {
 			$_SESSION['id'] = $row[0];
 			$_SESSION['name'] = $row[1];
+			$_SESSION['phone_number'] = $row[2];
 		}
 		else {
 			echo "<script>alert('로그인 실패');</script>";
@@ -28,6 +29,7 @@
 		if ($row != NULL) {
 			$_SESSION['id'] = $row[0];
 			$_SESSION['name'] = "예약 번호 ".$row[0]."번";
+			$_SESSION['phone_number'] = $row[1];
 		}
 		else {
 			echo "<script>alert('로그인 실패');</script>";
