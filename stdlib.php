@@ -86,7 +86,7 @@
 		if (!isset($connect))
 			$connect = get_connect();
 
-		$sql = "SELECT user_id, name FROM Customer WHERE user_id = '$user_id' AND user_pw = '$user_pw'";
+		$sql = "SELECT user_id, name, phone_number FROM Customer WHERE user_id = '$user_id' AND user_pw = '$user_pw'";
 		$stid = oci_parse($connect, $sql);
 
 		return query_with_disconnect($connect, $stid, $sql);
@@ -96,7 +96,7 @@
 		if (!isset($connect))
 			$connect = get_connect();
 
-		$sql = "SELECT reserve_id FROM Reserve WHERE reserve_id = '$reserve_id' AND reserve_phone_number = '$user_phone_number'";
+		$sql = "SELECT reserve_id, reserve_phone_number FROM Reserve WHERE reserve_id = '$reserve_id' AND reserve_phone_number = '$user_phone_number'";
 		$stid = oci_parse($connect, $sql);
 
 		return query_with_disconnect($connect, $stid, $sql);
