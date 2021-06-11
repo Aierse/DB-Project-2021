@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include "stdlib.php";
+	include_once "stdlib.php";
 	$connect = get_connect();
 	$screening_id = $_POST['screening'];
 	$sql = "SELECT reserve_col, reserve_row FROM Reserve WHERE screening_id = '$screening_id'";
@@ -117,21 +117,21 @@
 </style>
 <script>
 	function check() {
-		var chkbox = document.getElementsByName('seat');
-		for(var i = 0 ; i < chkbox.length ; i++) {
-			if(chkbox[i].checked) {
-				return true;
-			}
-		}
-
 		<?php
-			if (!isset($_SESSION['id'])) {
+			if (!is_member()) {
 			echo "if(!document.myForm.firstnum.value || !document.myForm.middlenum.value || !document.myForm.lastnum.value){";
 			echo "alert('휴대폰번호를 입력하세요.');";
 			echo "return false;";
 			echo "}";
 			}
 		?>
+		
+		var chkbox = document.getElementsByName('seat');
+		for(var i = 0 ; i < chkbox.length ; i++) {
+			if(chkbox[i].checked) {
+				return true;
+			}
+		}
 
 		alert("좌석을 선택하세요.");
 		return false;
