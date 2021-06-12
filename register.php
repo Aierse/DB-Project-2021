@@ -29,7 +29,7 @@
 		return false;
 	}
 	function checkId() {
-		window.open("checkId.php?id=" + document.register.id.value,"IDcheck","left=50, top=50, width=100, height=20, scrollbars=no, resizeable=no");
+		window.open("checkId.php?Is_id=" + document.register.Is_id.value,"IDcheck","left=50, top=50, width=100, height=20, scrollbars=no, resizeable=no")
 	}
 
 	function checkValue(){
@@ -68,7 +68,8 @@
 		<FORM name="register" method="post" action="./insertMember.php" onsubmit="return checkValue()">
 			<tr>
 				<td text-align="center">아이디 </td>
-				<td><input type = "text" name="id" maxlength = "10" placeholder="최대10글자."/></td>
+				<td><input type = "text" name="Is_id" id="Is_id" maxlength = "10" placeholder="최대10글자." />
+				<input type = "hidden" name= "id" id="real_id"/></td>
 				<td><input type = "button" value = "중복확인" onClick = "checkId()"/></td>
 			</tr>
 			<tr>
@@ -132,7 +133,7 @@
 			</tr>
 			<tr>
 				<td>
-					<input type = "submit" value = "가입하기"/>
+					<input type = "submit" value = "가입하기" disabled="disabled" id = "submit" />
 				</td>
 				<td>
 				</td>
