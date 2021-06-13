@@ -29,7 +29,13 @@
 		return false;
 	}
 	function checkId() {
-		window.open("checkId.php?Is_id=" + document.register.Is_id.value,"IDcheck","left=50, top=50, width=100, height=20, scrollbars=no, resizeable=no")
+		var _width = '100';
+		var _height = '20';
+
+		var _left = Math.ceil(( window.screen.width - _width )/2);
+		var _top = Math.ceil(( window.screen.height - _height )/2);
+
+		window.open("checkId.php?Is_id=" + document.register.Is_id.value,"IDcheck","left="+_left+", top="+_top+", width=100, height=20, scrollbars=no, resizeable=no")
 	}
 
 	function checkValue(){
