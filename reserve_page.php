@@ -10,7 +10,7 @@
 				WHERE screening_id IN (
 					SELECT screening_id
 					FROM Screening 
-					WHERE movie_id = '$movie_id'
+					WHERE movie_id = '$movie_id' AND start_time > sysdate
 				)
 				ORDER BY room_id, start_time";
 		
@@ -20,25 +20,6 @@
 		$i = 0;
 		while ($row = oci_fetch_array($stid)) {
 			$result[$i++] = $row;
-		}
-
-		oci_free_statement($stid);
-		oci_close($connect);
-
-		return $result;
-	}
-
-	function get_date($movie_id, $connect = null) {
-		if (!isset($connect))
-			$connect = get_connect();
-
-		$sql = "SELECT DISTINCT(TO_CHAR(start_time, 'YYYY-MM-DD')) FROM Screening WHERE movie_id = '$movie_id'";
-		$stid = oci_parse($connect, $sql);
-		oci_execute($stid);
-
-		$i = 0;
-		while ($row = oci_fetch_array($stid)) {
-			$result[$i++] = $row[0];
 		}
 
 		oci_free_statement($stid);
