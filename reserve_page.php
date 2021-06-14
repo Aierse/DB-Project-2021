@@ -5,7 +5,7 @@
 		if (!isset($connect))
 			$connect = get_connect();
 
-		$sql = "SELECT screening_id, room_id, TO_CHAR(start_time, 'MMDDHHMI')
+		$sql = "SELECT screening_id, room_id, TO_CHAR(start_time, 'MMDDHH24MI')
 				FROM Screening
 				WHERE screening_id IN (
 					SELECT screening_id
