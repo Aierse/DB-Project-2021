@@ -1,6 +1,6 @@
 import { useState } from "react";
 import MenuBar from "./MenuBar";
-import MenuTable from "./MenuTable";
+import FoodList from "./FoodList";
 import styles from "./Main.module.css";
 
 function Main() {
@@ -9,7 +9,7 @@ function Main() {
   return (
     <div className={styles.foodTable}>
       <MenuBar selected={selected} setSelected={setSelected} />
-      <MenuTable menu={selected} />
+      <FoodList menu={selected} />
     </div>
   );
 }

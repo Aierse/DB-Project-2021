@@ -6,11 +6,11 @@ function MenuBar({ selected, setSelected }) {
 
   return (
     <div className={styles.menuBar}>
-      <MenuItem value={"Snack"} checked={selected === "Snack"} onChange={onChangeEvent} />
-      <MenuItem value={"Popcorn"} checked={selected === "Popcorn"} onChange={onChangeEvent} />
-      <MenuItem value={"Hotdog"} checked={selected === "Hotdog"} onChange={onChangeEvent} />
-      <MenuItem value={"Drink"} checked={selected === "Drink"} onChange={onChangeEvent} />
-      <MenuItem value={"Set"} checked={selected === "Set"} onChange={onChangeEvent} />
+      <MenuItem value="Snack" selected={selected} setSelected={onChangeEvent} />
+      <MenuItem value="Popcorn" selected={selected} setSelected={onChangeEvent} />
+      <MenuItem value="Hotdog" selected={selected} setSelected={onChangeEvent} />
+      <MenuItem value="Drink" selected={selected} setSelected={onChangeEvent} />
+      <MenuItem value="Set" selected={selected} setSelected={onChangeEvent} />
     </div>
   );
 }
