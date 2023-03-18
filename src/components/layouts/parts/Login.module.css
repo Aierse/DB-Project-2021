@@ -1,0 +1,119 @@
+/* 로그인 폼 */
+.login {
+  padding: 19.016px;
+  border: 1px solid black;
+}
+/*라디오 버튼 숨김*/
+.login > input:nth-of-type(1) {
+  display: none;
+}
+.login > input:nth-of-type(2) {
+  display: none;
+}
+
+.login > input:nth-of-type(1) ~ div:nth-of-type(1) {
+  display: none;
+}
+.login > input:nth-of-type(2) ~ div:nth-of-type(2) {
+  display: none;
+}
+
+.login > input:nth-of-type(1):checked ~ div:nth-of-type(1) {
+  display: block;
+}
+.login > input:nth-of-type(2):checked ~ div:nth-of-type(2) {
+  display: block;
+}
+
+.login > .buttons {
+  width: 100%;
+}
+/*라벨 모양 지정*/
+.login > .buttons > label {
+  display: block;
+  float: left;
+
+  width: 149.7655px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  margin-bottom: 5%;
+  cursor: pointer;
+}
+/* 회원 버튼 클릭시 */
+.login > input:nth-of-type(1):checked ~ .buttons > label:nth-of-type(1) {
+  border: 1px solid black;
+  border-bottom: 0;
+}
+
+.login > input:nth-of-type(1):checked ~ .buttons > label:nth-of-type(2) {
+  border-top: 1px solid #bebebe;
+  border-right: 1px solid #bebebe;
+  border-bottom: 1px solid black;
+}
+/*비회원 버튼 클릭시 */
+.login > input:nth-of-type(2):checked ~ .buttons > label:nth-of-type(1) {
+  border-top: 1px solid #bebebe;
+  border-left: 1px solid #bebebe;
+  border-bottom: 1px solid black;
+}
+
+.login > input:nth-of-type(2):checked ~ .buttons > label:nth-of-type(2) {
+  border: 1px solid black;
+  border-bottom: 0;
+}
+/*로그인 입력창*/
+.login > div > input {
+  outline: none;
+
+  border: 1px solid gray;
+  padding-left: 12.094px;
+  width: 288.437px;
+  height: 40px;
+  margin-bottom: 5%;
+  text-align: left;
+}
+/*로그인 버튼*/
+.logging {
+  outline: none;
+  width: 302.531px;
+  height: 45px;
+  border: 1px solid gray;
+
+  background-color: #e71a0f;
+  font-weight: 700;
+  font-size: 16px;
+  padding-left: 16px;
+  letter-spacing: 16px;
+  color: white;
+  cursor: pointer;
+}
+/*회원가입 , ID 창 */
+.manage {
+  margin-top: 5%;
+}
+
+.manage > ul {
+  padding: 0;
+  overflow: hidden;
+  list-style-type: none;
+}
+
+.manage > ul > li {
+  text-align: center;
+  padding: 0 3%;
+  float: left;
+}
+
+.manage > ul > li:nth-of-type(1) {
+  width: 33%;
+  border-right: 1px solid #bebebe;
+}
+
+.manage > ul > li:nth-of-type(2) {
+  width: 53%;
+}
+
+.manage > ul > li > a {
+  color: #5a5a5a;
+}
