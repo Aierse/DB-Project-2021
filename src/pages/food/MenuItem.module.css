@@ -1,0 +1,16 @@
+.item > span {
+  padding: 1rem;
+  cursor: pointer;
+  border-top: 1px var(--main-color) solid;
+  border-bottom: 1px var(--main-color) solid;
+}
+
+.item > input {
+  display: none;
+}
+
+.item input[type="radio"]:checked + span {
+  background-color: var(--main-color);
+  color: white;
+  transition-duration: 1s;
+}
