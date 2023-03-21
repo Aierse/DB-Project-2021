@@ -5,11 +5,12 @@ import Food from "./routes/Food";
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="menu">
           <Route path="food" element={<Food />}></Route>
+          <Route path="seat" element={<Seat />}></Route>
         </Route>
       </Routes>
     </Router>
