@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  background-color: beige;
+  text-align: center;
+  margin: 0 auto;
+}
+
+a:link {
+  color: black;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+:root {
+  --main-color: #e71a0f;
+}
+
+span {
+  display: inline-block;
+}
+
+ul,
+li {
+  list-style: none;
+}
