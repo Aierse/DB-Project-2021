@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/DB-Project-2021/static/css/main.bda5d297.css",
-    "main.js": "/DB-Project-2021/static/js/main.db3b57dc.js",
+    "main.css": "/DB-Project-2021/static/css/main.f77efca7.css",
+    "main.js": "/DB-Project-2021/static/js/main.20d05080.js",
     "static/media/카페모카.jpg": "/DB-Project-2021/static/media/카페모카.083f62755830ec5ce39e.jpg",
     "static/media/어니언핫도그.jpg": "/DB-Project-2021/static/media/어니언핫도그.0bb42bbad1f38a7d1e29.jpg",
     "static/media/카푸치노.jpg": "/DB-Project-2021/static/media/카푸치노.b16445954e6c8d95ee75.jpg",
@@ -20,11 +20,11 @@
     "static/media/아메리카노.jpg": "/DB-Project-2021/static/media/아메리카노.6311e9c7488616008363.jpg",
     "static/media/카페라테.jpg": "/DB-Project-2021/static/media/카페라테.6fe4f875880808ac5eb7.jpg",
     "index.html": "/DB-Project-2021/index.html",
-    "main.bda5d297.css.map": "/DB-Project-2021/static/css/main.bda5d297.css.map",
-    "main.db3b57dc.js.map": "/DB-Project-2021/static/js/main.db3b57dc.js.map"
+    "main.f77efca7.css.map": "/DB-Project-2021/static/css/main.f77efca7.css.map",
+    "main.20d05080.js.map": "/DB-Project-2021/static/js/main.20d05080.js.map"
   },
   "entrypoints": [
-    "static/css/main.bda5d297.css",
-    "static/js/main.db3b57dc.js"
+    "static/css/main.f77efca7.css",
+    "static/js/main.20d05080.js"
   ]
 }
