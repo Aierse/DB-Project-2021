@@ -5,7 +5,7 @@ import Food from "./routes/Food";
 
 function App() {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="menu">

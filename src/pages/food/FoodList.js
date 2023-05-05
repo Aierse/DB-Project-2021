@@ -64,8 +64,8 @@ const list = {
 function FoodList({ menu }) {
   return (
     <div className={styles.foodList}>
-      {list[menu].map((element) => (
-        <FoodItem image={element.image} name={element.name} price={element.price} />
+      {list[menu].map((element, i) => (
+        <FoodItem key={i} image={element.image} name={element.name} price={element.price} />
       ))}
     </div>
   );
